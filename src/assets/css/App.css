@@ -1,0 +1,81 @@
+:root {
+  --color-dark-dark: #292929;
+  --color-dark: #474747;
+  --color-dark-light: #7a7a7a;
+  --color-light: #f9f9f9;
+  --color-accent: #ea9b84;
+  --color-primary: #73d5b1;
+  --color-primary-dark: #5cc4a4;
+  color: var(--color-dark);
+  font-family: 'Nunito', sans-serif;
+}
+body {
+  margin: 0;
+  font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+    'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+#home {
+  padding: 0;
+}
+
+#app {
+  background-color: var(--color-light);
+}
+
+#header {
+  height: 6em;
+  padding: 1em 0;
+}
+
+#quiz {
+  height: 35em;
+  background-color: white;
+  border: 2px solid var(--color-primary);
+  border-radius: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.quiz-choice {
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+}
+.btn-quiz-choice {
+  width: 4em;
+  height: 4em;
+  margin: 1em;
+  border-radius: 100%;
+  background-color: var(--color-primary);
+}
+.btn-quiz-choice:hover {
+  background-color: var(--color-primary-dark);
+}
+.btn-quiz-choice .active {
+  background-color: var(--color-c);
+}
+
+.nav {
+  list-style-type: none;
+  float: right;
+}
+
+.main {
+  min-height: calc(100vh - 21.6rem);
+}
+
+#footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 3em;
+}
