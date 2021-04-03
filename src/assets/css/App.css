@@ -70,12 +70,23 @@ code {
 }
 
 .nav {
-  list-style-type: none;
   float: right;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+.nav-header {
+  margin-bottom: 0.5em;
+  padding-left: 0;
+}
+.nav-header a {
+  margin-left: 1em;
+}
+#explore-careers {
+  justify-content: flex-start;
 }
 
 .main {
-  min-height: calc(100vh - 11.1rem);
+  min-height: calc(100vh - 11.1em);
 }
 
 #footer {
@@ -86,5 +97,5 @@ code {
 }
 
 #logo-col {
-  max-width: 140px;
+  max-width: 120px;
 }

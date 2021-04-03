@@ -13,11 +13,13 @@ class Header extends Component {
                     <Col id="logo-col">
                         <Link exact to="/"><h1 id='logo'>Logo</h1></Link>
                     </Col>
-                    <Col classname='nav'>
-                        <Link to="/careers">Explore all careers</Link>
+                    <Col className='nav' id='explore-careers'>
+                        <ul className='nav-header'>
+                            <Link to="/careers">Explore all careers</Link>
+                        </ul>
                     </Col>
-                    <Col>
-                        <ul id='nav-header' className='nav'>
+                    <Col className='nav'>
+                        <ul className='nav-header'>
                             <NavLink to="/login">Login</NavLink>
                             <NavLink to="/register">Register</NavLink>
                         </ul>

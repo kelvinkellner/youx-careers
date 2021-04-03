@@ -7,11 +7,9 @@ import Quiz from '../Quiz';
 class Home extends Component { 
     render() {
         return(
-            <>
-                <Container id='home' className='main'>
-                    <Quiz />
-                </Container>
-            </>
+            <Container id='home' className='main'>
+                <Quiz />
+            </Container>
         );
     }
 }
