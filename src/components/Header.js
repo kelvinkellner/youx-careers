@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
+
+import LoginController from './LoginController';
 
 class Header extends Component {
     render() {
@@ -20,8 +22,7 @@ class Header extends Component {
                     </Col>
                     <Col className='nav'>
                         <ul className='nav-header'>
-                            <NavLink to="/login">Login</NavLink>
-                            <NavLink to="/register">Register</NavLink>
+                            <LoginController />
                         </ul>
                     </Col>
                 </Row>

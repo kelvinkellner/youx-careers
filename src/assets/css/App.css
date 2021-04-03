@@ -99,3 +99,7 @@ code {
 #logo-col {
   max-width: 120px;
 }
+
+.btn-header {
+  margin-left: 0.4em;
+}
