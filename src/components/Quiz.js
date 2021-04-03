@@ -48,8 +48,8 @@ class Quiz extends Component {
         const show = this.state.now > 0 && this.state.now <= this.state.total ? (<>
             <Row style={{width: "100%"}}>
                 <Col>
-                    <Row style={{justifyContent: "center"}}><ProgressBar now={(this.state.now) * 100 / this.state.total}/></Row>
-                    <Row style={{justifyContent: "center"}}><p>Question {this.state.now} of {this.state.total}</p></Row>
+                    <Row style={{justifyContent: "center", marginTop: "0.6em"}}><ProgressBar now={(this.state.now) * 100 / this.state.total}/></Row>
+                    <Row style={{justifyContent: "center", marginTop: "0.6em"}}><p>Question {this.state.now} of {this.state.total}</p></Row>
                 </Col>
             </Row>
             <Row>
@@ -57,21 +57,21 @@ class Quiz extends Component {
             </Row>
             <Row style={{width: "100%", marginTop:"1.2em"}}>
                 <Col style={{padding: "0 8vw 0 16vw"}}>
-                    <ul class='quiz-choice' style={{float: "right", margin: 0, minWidth: "16em"}}>
+                    <ul class='quiz-choice' style={{float: "right", margin: 0, minWidth: "16em", width: "100%"}}>
                         {[...Array(5).keys()].map(x =>
-                            <Row>
+                            <Row style={{width: "100%"}}>
                                 <Col style={{padding: 0}}>
-                                    <Button className={this.state.choice === (x+1) ? 'btn-primary' : 'btn-secondary'} onClick={()=>this.setState({choice: x+1})} style={{margin: "0.2em", minWidth: "13em"}}>
+                                    <Button className={this.state.choice === (x+1) ? 'btn-primary' : 'btn-secondary'} onClick={()=>this.setState({choice: x+1})} style={{margin: "0.2em", minWidth: "13em", width: "70%", float: "right"}}>
                                         <Row>
-                                            <Col xs={2} style={{padding:0}}>{x+1}</Col>
-                                            <Col xs={1} style={{padding:0}}>|</Col>
-                                            <Col xs={8} style={{padding:0}}>{
+                                            <Col xs={2} style={{padding:0}}><p style={{margin: 0, float: "right"}}>{x+1}</p></Col>
+                                            <Col xs={2} style={{padding:0}}><p style={{margin: 0, float: "center"}}>|</p></Col>
+                                            <Col xs={8} style={{padding:0}}><p style={{margin: 0, float: "center", paddingRight: "1.6em"}}>{
                                                 x===0 ? "Strongly disagree" : 
                                                 x===1 ? "         disagree" :
                                                 x===2 ? "         neutral" :
                                                 x===3 ? "         agree" :
                                                 x===4 ? "Strongly agree" :
-                                            ""}</Col>
+                                            ""}</p></Col>
                                         </Row>
                                     </Button>
                                 </Col>
