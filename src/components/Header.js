@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link, NavLink } from 'react-router-dom';
 
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
@@ -9,13 +10,16 @@ class Header extends Component {
         return(
             <Container id='header'>
                 <Row>
-                    <Col>
-                        <h1 id='logo'>Logo</h1>
+                    <Col id="logo-col">
+                        <Link exact to="/"><h1 id='logo'>Logo</h1></Link>
+                    </Col>
+                    <Col classname='nav'>
+                        <Link to="/careers">Explore all careers</Link>
                     </Col>
                     <Col>
                         <ul id='nav-header' className='nav'>
-                            <li>Home</li>
-                            <li>Login</li>
+                            <NavLink to="/login">Login</NavLink>
+                            <NavLink to="/register">Register</NavLink>
                         </ul>
                     </Col>
                 </Row>

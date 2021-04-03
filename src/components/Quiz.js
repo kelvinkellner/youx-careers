@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
+import ProgressBar from 'react-bootstrap/ProgressBar';
 import Row from 'react-bootstrap/Row';
 
 class Quiz extends Component {
     render() {
         return(
             <Container id='quiz'>
+                <ProgressBar now={60} style={{width: "80%"}}/>
                 <Row>
                     <h2>Question question.... hmmm... thoughts?</h2>
                 </Row>

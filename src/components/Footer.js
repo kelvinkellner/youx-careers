@@ -10,7 +10,7 @@ class Footer extends Component {
                 <hr />
                 <Container id='footer'>
                     <Row>
-                        <p>&copy; {new Date().getFullYear()}. Designed by Kelvin Kellner, Ho Yin So (Colby), Natarini Sima, Ji-Ling Feng (Kitty). Developed by Kelvin Kellner.</p>
+                        <p>&copy;{new Date().getFullYear()} Developed by Kelvin Kellner. Designed by Kelvin Kellner, Ho Yin So (Colby), Natarini Sima, Ji-Ling Feng (Kitty).</p>
                     </Row>
                 </Container>
             </>
