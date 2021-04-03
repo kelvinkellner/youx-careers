@@ -46,8 +46,8 @@ code {
   border-radius: 1em;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  padding: 1em;
 }
 .quiz-choice {
   padding: 2em 0;
@@ -102,4 +102,8 @@ code {
 
 .btn-header {
   margin-left: 0.4em;
+}
+
+.progress {
+  width: 100%;
 }

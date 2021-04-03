@@ -5,11 +5,26 @@ import Container from 'react-bootstrap/Container';
 import ProgressBar from 'react-bootstrap/ProgressBar';
 import Row from 'react-bootstrap/Row';
 
+const q = (msg) => ({
+    message: {msg},
+    answer: -1
+});
+const questions = [q("hi?"),q("what's up?")];
+
 class Quiz extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            started: false,
+            finished: false,
+            now: 0,
+            total: questions.length
+        }
+    }
     render() {
         return(
             <Container id='quiz'>
-                <ProgressBar now={60} style={{width: "80%"}}/>
+                <ProgressBar now={(this.state.now) * 100 / this.state.total} label={`Question ${this.state.now} of ${this.state.total}`}/>
                 <Row>
                     <h2>Question question.... hmmm... thoughts?</h2>
                 </Row>
