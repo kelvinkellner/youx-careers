@@ -53,6 +53,7 @@ code {
   padding: 2em 0;
   list-style-type: none;
   display: flex;
+  flex-direction: column;
   align-items: center;
 }
 .btn-quiz-choice {
@@ -65,8 +66,8 @@ code {
 .btn-quiz-choice:hover {
   background-color: var(--color-primary-dark);
 }
-.btn-quiz-choice .active {
-  background-color: var(--color-c);
+.active.btn-quiz-choice {
+  background-color: var(--color-accent);
 }
 
 .nav {
@@ -98,6 +99,7 @@ code {
 
 #logo-col {
   max-width: 120px;
+  padding-left: 20px;
 }
 
 .btn-header {
@@ -105,5 +107,5 @@ code {
 }
 
 .progress {
-  width: 100%;
+  width: 80%;
 }
