@@ -1,4 +1,6 @@
 import VisualDesignImg from '../../assets/graphics/visual-design.svg';
+import UXEngineerImg from '../../assets/graphics/ux-engineer.svg';
+import UXResearcherImg from '../../assets/graphics/ux-researcher.svg';
 
 const q = (msg) => ({
     message: msg,
@@ -53,7 +55,8 @@ const jobs = {
         "Unlike UX or Product designers, they are more towards specialists than generalists. They take on the job of creating pixel-perfect prototypes that align or remain consistent with the rest of the product. Their main role begins when the production development reaches the Prototyping phase.",
         VisualDesignImg),
      2: job("UX Researcher", {5: 1, 6: 1, 7: 1, 8:1, 9: 1, 26: 1, 25: 1},
-        "Just like Product designers, they’re specialists in terms of their skill set, as they are focused on utilizing qualitative and quantitative research methods to provide information about users to other designers to inform them about the design they’re working towards and how it matches up to the user’s needs, etc. They are commonly more known as user researchers or simply researchers."),
+        "Just like Product designers, they’re specialists in terms of their skill set, as they are focused on utilizing qualitative and quantitative research methods to provide information about users to other designers to inform them about the design they’re working towards and how it matches up to the user’s needs, etc. They are commonly more known as user researchers or simply researchers.",
+        UXResearcherImg),
      3: job("Product Designer", {10: 1, 11: 1, 12: 1, 13: 1, 14: 1},
         "While they’re similar in nature to UX designers, the most distinguishing part is that they are specialized in paying special attention towards the product on top of user experience. (I.e. They pay greater attention to detail on how the product will function and benefit their end user)."),
      4: job("UX Designer", {15: 1, 16: 1, 17: 1, 11: 0.75, 12: 1},
@@ -61,7 +64,8 @@ const jobs = {
      5: job("Content Strategist", {18: 1, 19: 1, 20: 1, 21: 1},
         "They play the role of the most critical area that designers often overlook: words. As copy is the most important part of design, Copywriting is a specific role for that. As a Content Strategist, you will be mainly contributing to the Prototype process of design thinking, and you will be crucial in finalizing the product before launch (I.e. Ensuring that everything is properly checked and accurate to the design proposal)."),
      6: job("UX Engineer", {18: 1, 22: 1, 23: 1, 24: 1},
-        "UX engineer is a front-end engineer who facilitates effective design collaboration between the design and engineering teams. They are also responsible for producing prototypes that require coding. Much like a UX designer, their job is to turn a complex problem into a more intuitive solution."),
+        "UX engineer is a front-end engineer who facilitates effective design collaboration between the design and engineering teams. They are also responsible for producing prototypes that require coding. Much like a UX designer, their job is to turn a complex problem into a more intuitive solution.",
+        UXEngineerImg),
      7: job("UX Unicorn", {25: 1, 1: 0.5, 26: 0.5, 22: 0.5, 4: 0.5, 15: 0.5, 18: 0.5, 14: 0.5, 9: 0.5, 27: 1},
         "Although the name sounds new and mostly unfamiliar to people, don’t be confused! In the world of start-ups, “Unicorn” refers to those who not only possess the usual skill set for UX design but also have additional skills from other domains, as they can provide multiple values to business with a different skill set (I.e. covering other areas). They can be also considered as programmers who live code the product’s accessibility and functions (I.e. Browser)."),
      /*8: job("Information Architect", {5: 1, 27: 1, 9: 1, 21: 1, 7: 1}),*/
