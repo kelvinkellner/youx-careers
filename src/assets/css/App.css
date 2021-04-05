@@ -109,3 +109,19 @@ code {
 .progress {
   width: 80%;
 }
+
+.card {
+  border-color: var(--color-primary-dark);
+}
+.card-header {
+  text-align: center;
+  background-color: var(--color-primary);
+  border-color: var(--color-primary-dark);
+  color: var(--color-dark-dark);
+}
+.card-text {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
+}

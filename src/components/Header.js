@@ -13,7 +13,7 @@ class Header extends Component {
             <Container id='header'>
                 <Row>
                     <Col id="logo-col">
-                        <Link exact to="/"><h1 id='logo'>Logo</h1></Link>
+                        <Link to="/"><h1 id='logo'>Logo</h1></Link>
                     </Col>
                     <Col className='nav' id='explore-careers'>
                         <ul className='nav-header'>
