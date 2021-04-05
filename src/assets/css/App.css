@@ -125,3 +125,32 @@ code {
   -webkit-line-clamp: 6;
   -webkit-box-orient: vertical;
 }
+
+.hint a {
+  color: var(--color-dark-light);
+  font-size: 0.8rem;
+}
+.hint a:hover {
+  color: var(--color-dark);
+}
+
+#specific-career p {
+  font-size: 1.3rem;
+}
+#specific-career li {
+  font-size: 1.1rem;
+}
+#specific-career h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-bottom: 0.6em;
+}
+#specific-career h3 {
+  margin-top: 0.8em;
+}
+#specific-career {
+  margin-bottom: 2em;
+}

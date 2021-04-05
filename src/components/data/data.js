@@ -7,16 +7,18 @@ const q = (msg) => ({
     choice: 0
 });
 
-const job = (title, weights, bio, img, bullets, responsibilities, roles, skills, requirements) => ({
+const job = (title, weights, bio, img, bullets, responsibilities, requirements, willenjoyif, tasks, skills, salary) => ({
     title: title,
     weights: weights,
     bio: bio,
     img: img,
     bullets: bullets,
     responsibilities: responsibilities,
-    roles: roles,
-    skills: skills,
     requirements: requirements,
+    willenjoyif: willenjoyif,
+    tasks: tasks,
+    skills: skills,
+    salary: salary
 });
 
 const questions = {
@@ -59,8 +61,19 @@ const jobs = {
         UXResearcherImg),
      3: job("Product Designer", {10: 1, 11: 1, 12: 1, 13: 1, 14: 1},
         "While they’re similar in nature to UX designers, the most distinguishing part is that they are specialized in paying special attention towards the product on top of user experience. (I.e. They pay greater attention to detail on how the product will function and benefit their end user)."),
-     4: job("UX Designer", {15: 1, 16: 1, 17: 1, 11: 0.75, 12: 1},
-        "Generalists who cover a little of everything in the entire design process. Their job is to understand their user’s needs, generate ideas to solve their problems, prototype designs and test them with users."),
+   4: {
+        title: "UX Designer",
+        weights: {15: 1, 16: 1, 17: 1, 11: 0.75, 12: 1},
+        bio: "Generalists who cover a little of everything in the entire design process. Their job is to understand their user’s needs, generate ideas to solve their problems, prototype designs and test them with users.",
+        img: "",
+        bullets: ["Responsible for all 5 phase of design thinking process: Empathize, Define, Ideate, Prototype and Test.", "Their sub-roles also include: Interaction Designer, UI/UX Designer and Experience Designers."],
+        responsibilities: ["Conducting user research through interviews, observations, and other research methods. (I.e. Learning from their users’ perspective).", "Selecting the most promising idea(s) based on their: feasibility, desirability, viability and among other criteria. ", "Analyzing Pain points from User’s perspective based on User Research.", "Prototyping designs from low fidelity (Sketch, etc.) to high-fidelity (Coding, etc.).", "Pushing design solutions out to the world that will benefit both users and company.", "Conduct usability testing to see if they need further improvements.", "Create user stories, personas, and storyboards.", "Collaborate with designers and developers to create user-friendly software."],
+        requirements: ["Proven experience as a UX Designer, UI Designer or similar role", "Strong portfolio of design projects", "Background in project management, research, interaction design, and information architecture", "Knowledge of industry tools such as Sketch, Adobe InDesign, Illustrator, and InVision", "Proficient in design software and knowledge of HTML/CSS", "BSc in Design, computer science, engineering or a related field"],
+        willenjoyif: ["Love to create intuitive and useful solutions to solve the problems users face in their lives.", "Enjoy taking charge of the entire design process, from the initial stage of understanding users to the final stage of producing a high-fidelity prototype."],
+        tasks: ["User Research", "Wireframing", "Low to High fidelity", "User testing", "Heuristic evaluation reports", "User journey map", "User persona"],
+        skills: ["Communication, collaboration, teamwork", "Creative and analytical approach", "Understanding of interaction design principles and user psychology"],
+        salary: "63,613"
+     },
      5: job("Content Strategist", {18: 1, 19: 1, 20: 1, 21: 1},
         "They play the role of the most critical area that designers often overlook: words. As copy is the most important part of design, Copywriting is a specific role for that. As a Content Strategist, you will be mainly contributing to the Prototype process of design thinking, and you will be crucial in finalizing the product before launch (I.e. Ensuring that everything is properly checked and accurate to the design proposal)."),
      6: job("UX Engineer", {18: 1, 22: 1, 23: 1, 24: 1},

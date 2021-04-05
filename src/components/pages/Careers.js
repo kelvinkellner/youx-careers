@@ -26,7 +26,7 @@ class Careers extends Component {
         const showSpecificCareer = this.state.showSpecificCareer;
         const job = this.state.job;
         const show = showSpecificCareer ? (
-        <Container className='main'>
+        <Container id='specific-career' className='main'>
             <Row style={{height: "100%"}}>
                 <Col xs={12} lg={2}>
                     <Button onClick={() => this.setState({showSpecificCareer: false, job: null})}>Go Back</Button>
@@ -35,10 +35,23 @@ class Careers extends Component {
                 </Col>
                 <Col xs={12} lg={6}>
                     <h1>{job.title}</h1>
-                    <p>{job.bio}</p>
+                        <p>{job.bio}</p>
+                        <ul>{job.bullets.map(item => <li>{item}</li>)}</ul>
+                    <h3>Responsibilities</h3>
+                        <ul>{job.responsibilities.map(item => <li>{item}</li>)}</ul>
+                    <h3>Requirements</h3>
+                        <ul>{job.requirements.map(item => <li>{item}</li>)}</ul>
+                    <h4 style={{marginTop: "1.6em"}}>You will enjoy being a {job.title} if you...</h4>
+                        <ol>{job.willenjoyif.map(item => <li>{item}</li>)}</ol>
                 </Col>
-                <Col xs={12} lg={4}>
-                
+                <Col xs={12} lg={3} style={{marginLeft: "4em"}}>
+                    <h4>Tasks</h4>
+                        <ul>{job.tasks.map(item => <li>{item}</li>)}</ul>
+                    <h4>Skills Needed</h4>
+                        <ul>{job.skills.map(item => <li>{item}</li>)}</ul>
+                    <h4>Average Salary</h4>
+                        <p style={{fontSize: "1.1rem"}}>${job.salary} / year (median)</p>
+                        <p className="hint"><a href="https://www.payscale.com/" target="_blank" rel="noreferrer">In Canada, 2021</a></p>
                 </Col>
             </Row>
         </Container>
