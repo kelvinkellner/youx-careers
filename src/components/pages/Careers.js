@@ -16,11 +16,9 @@ class Careers extends Component {
                 <Row>
                     <CardDeck style={{padding: "0 8em"}}>
                         {jList.map((job, i) => (
-                            <Card style={{minWidth: "20%", marginBottom: "2em"}}>
-                                <Card.Body>
-                                    <Card.Title style={{textAlign: "center"}}>{job.title}</Card.Title>
-                                </Card.Body>
-                                <Button style={{borderRadius: "0 0 3px 3px"}}>Read more</Button>
+                            <Card className="career-page-card" style={{minWidth: "20%", marginBottom: "2em", alignItems: "center"}}>
+                                <Card.Img variant="top" src={job.img} style={{width: "60%", margin: "1.6em 0"}} />
+                                <Button style={{borderRadius: "0 0 3px 3px", width: "100%"}}>{job.title}</Button>
                             </Card>
                         ))}
                     </CardDeck>

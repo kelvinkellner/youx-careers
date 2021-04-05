@@ -125,3 +125,6 @@ code {
   -webkit-line-clamp: 6;
   -webkit-box-orient: vertical;
 }
+.career-page-card {
+  background-color: rgba(0, 0, 0, 0);
+}

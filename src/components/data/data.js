@@ -1,16 +1,20 @@
+import VisualDesignImg from '../../assets/graphics/visual-design.svg';
+
 const q = (msg) => ({
     message: msg,
     choice: 0
 });
-const job = (title, weights, bio, bullets, responsibilities, roles, skills, requirements) => ({
+
+const job = (title, weights, bio, img, bullets, responsibilities, roles, skills, requirements) => ({
     title: title,
     weights: weights,
     bio: bio,
+    img: img,
     bullets: bullets,
     responsibilities: responsibilities,
     roles: roles,
     skills: skills,
-    requirements: requirements
+    requirements: requirements,
 });
 
 const questions = {
@@ -46,7 +50,8 @@ const questions = {
 };
 const jobs = {
      1: job("Visual Designer", {1: 1, 2: 1, 3: 1, 4: 1, 5: 1},
-        "Unlike UX or Product designers, they are more towards specialists than generalists. They take on the job of creating pixel-perfect prototypes that align or remain consistent with the rest of the product. Their main role begins when the production development reaches the Prototyping phase. "),
+        "Unlike UX or Product designers, they are more towards specialists than generalists. They take on the job of creating pixel-perfect prototypes that align or remain consistent with the rest of the product. Their main role begins when the production development reaches the Prototyping phase.",
+        VisualDesignImg),
      2: job("UX Researcher", {5: 1, 6: 1, 7: 1, 8:1, 9: 1, 26: 1, 25: 1},
         "Just like Product designers, they’re specialists in terms of their skill set, as they are focused on utilizing qualitative and quantitative research methods to provide information about users to other designers to inform them about the design they’re working towards and how it matches up to the user’s needs, etc. They are commonly more known as user researchers or simply researchers."),
      3: job("Product Designer", {10: 1, 11: 1, 12: 1, 13: 1, 14: 1},
