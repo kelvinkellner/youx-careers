@@ -17,7 +17,7 @@ class Quiz extends Component {
         this.calcTopJobs = this.calcTopJobs.bind(this);
         this.state = {
             ids: Object.keys(questions),
-            now: 30,
+            now: 0,
             total: Object.keys(questions).length,
             choice: 0
         }
@@ -46,7 +46,7 @@ class Quiz extends Component {
             let total = 0;
             const weights = Object.keys(jobs[keys[i]].weights);
             for(let j=0; j<weights.length; j++) {
-                total += jobs[keys[i]].weights[weights[j]] * questions[weights[j]].choice;
+                total += jobs[keys[i]].weights[weights[j]] * (questions[weights[j]].choice-3);
             }
             jobTotals[keys[i]] = total;
         }

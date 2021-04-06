@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import Link from 'react-router-dom/Link';
 
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import CardDeck from 'react-bootstrap/CardDeck';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
+import Image from 'react-bootstrap/Image';
 import Row from 'react-bootstrap/Row';
 
 import { jobs } from '../data/data';
@@ -28,10 +30,11 @@ class Careers extends Component {
         const show = showSpecificCareer ? (
         <Container id='specific-career' className='main'>
             <Row style={{height: "100%"}}>
-                <Col xs={12} lg={2}>
-                    <Button onClick={() => this.setState({showSpecificCareer: false, job: null})}>Go Back</Button>
-                    <Button>Retake Quiz</Button>
-                    <Button>My Pins</Button>
+                <Col xs={12} lg={2} style={{paddingTop: "0.8em"}}>
+                    <Button variant="secondary" onClick={() => this.setState({showSpecificCareer: false, job: null})} style={{width: "100%"}}>Go Back</Button>
+                    <Button as={Link} to="/" variant="secondary" style={{width: "100%", marginTop: "1.2em"}}>Retake Quiz</Button>
+                    <Button variant="secondary" style={{width: "100%", marginTop: "1.2em"}}>My Pins</Button>
+                    <Button style={{width: "100%", height: "4em", marginTop: "1.2em"}}>Pin to Profile</Button>
                 </Col>
                 <Col xs={12} lg={6}>
                     <h1>{job.title}</h1>
@@ -50,8 +53,9 @@ class Careers extends Component {
                     <h4>Skills Needed</h4>
                         <ul>{job.skills.map(item => <li>{item}</li>)}</ul>
                     <h4>Average Salary</h4>
-                        <p style={{fontSize: "1.1rem"}}>${job.salary} / year (median)</p>
-                        <p className="hint"><a href="https://www.payscale.com/" target="_blank" rel="noreferrer">In Canada, 2021</a></p>
+                        <p style={{fontSize: "1.1rem", marginBottom: "-0.2em"}}>${job.salary} / year (median)</p>
+                        <p className="hint"><a href="https://www.payscale.com/" target="_blank" rel="noreferrer">2021 in Canada, via PayScale.</a></p>
+                    {() => job.img ? <Image fluid src={job.img} alt={job.title + ' icon'} /> : <></>}
                 </Col>
             </Row>
         </Container>
