@@ -13,11 +13,11 @@ class Header extends Component {
             <Container id='header'>
                 <Row>
                     <Col id="logo-col">
-                        <Link to="/"><h1 id='logo'>Logo</h1></Link>
+                        <Link to="/"><h1 id='logo'>YouX Careers</h1></Link>
                     </Col>
                     <Col className='nav' id='explore-careers'>
                         <ul className='nav-header'>
-                            <Link to="/careers">Explore all careers</Link>
+                            <Link to="/careers"><h5 style={{margin: 0}}>Explore all careers</h5></Link>
                         </ul>
                     </Col>
                     <Col className='nav'>

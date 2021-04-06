@@ -98,8 +98,13 @@ code {
 }
 
 #logo-col {
-  max-width: 120px;
-  padding-left: 20px;
+  max-width: 320px;
+  padding-left: 30px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+#logo {
+  margin-top: 0.2em;
+  margin-bottom: 0;
 }
 
 .btn-header {
@@ -153,4 +158,22 @@ h6 {
 }
 #specific-career {
   margin-bottom: 2em;
+}
+
+.pinned-section {
+  border: var(--color-dark-light) 1px solid;
+  border-radius: 3px;
+  padding: 0.3em;
+  flex-direction: row;
+  align-items: center;
+  margin: 0 0.6em;
+}
+.pinned-section p {
+  padding: 0;
+  margin: 0;
+  height: min-content;
+  font-size: 1.2rem;
+}
+.pinned-section .btn {
+  width: 100%;
 }

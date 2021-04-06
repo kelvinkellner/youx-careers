@@ -94,7 +94,7 @@ const jobs = {
      },
    5: {
          title:"Content Strategist", 
-         weight: {18: 1, 19: 1, 20: 1, 21: 1},
+         weights: {18: 1, 19: 1, 20: 1, 21: 1},
          bio: "They play the role of the most critical area that designers often overlook: words. As copy is the most important part of design, Copywriting is a specific role for that. As a Content Strategist, you will be mainly contributing to the Prototype process of design thinking, and you will be crucial in finalizing the product before launch (I.e. Ensuring that everything is properly checked and accurate to the design proposal).",
          img: "",
          bullets: ["Also known as UX writers or Copywriters.", "Provide a copy of the user interface so that people can navigate, use and troubleshoot the product easily."],
@@ -107,7 +107,7 @@ const jobs = {
       },
    6: {
          title: "UX Engineer", 
-         weight: {18: 1, 22: 1, 23: 1, 24: 1},
+         weights: {18: 1, 22: 1, 23: 1, 24: 1},
          bio: "UX engineer is a front-end engineer who facilitates effective design collaboration between the design and engineering teams. They are also responsible for producing prototypes that require coding. Much like a UX designer, their job is to turn a complex problem into a more intuitive solution.",
          img: UXEngineerImg,
          bullets: ["TODO: MISSING DATA. Consider making optional?"],
@@ -120,7 +120,7 @@ const jobs = {
       },
    7: {
          title: "UX Unicorn",
-         weight: {25: 1, 1: 0.5, 26: 0.5, 22: 0.5, 4: 0.5, 15: 0.5, 18: 0.5, 14: 0.5, 9: 0.5, 27: 1},
+         weights: {25: 1, 1: 0.5, 26: 0.5, 22: 0.5, 4: 0.5, 15: 0.5, 18: 0.5, 14: 0.5, 9: 0.5, 27: 1},
          bio: "Although the name sounds new and mostly unfamiliar to people, don’t be confused! In the world of start-ups, “Unicorn” refers to those who not only possess the usual skill set for UX design but also have additional skills from other domains, as they can provide multiple values to business with a different skill set (I.e. covering other areas). They can be also considered as programmers who live code the product’s accessibility and functions (I.e. Browser).",
          img: "",
          bullets: ["It typically refers to an UX designer who’s proficient in design AND frontend development.", "Part of the 5 design thinking processes, plus Frontend development.", "Considered to be rare as only people who are talented enough to do Frontend work are considered to be one.", "In charge of the entire design process, and translate their designs into live code.", "Shares similar traits to UX designer and UX engineer, thus is a combination of both. Therefore acts concurrently to the aforementioned two roles at once."],
@@ -134,7 +134,7 @@ const jobs = {
      /*8: job("Information Architect", {5: 1, 27: 1, 9: 1, 21: 1, 7: 1}),*/
    9: {
          title: "Motion Designer",
-         weight: {1: 1, 28: 1, 29: 1, 4: 1, 19: 1},
+         weights: {1: 1, 28: 1, 29: 1, 4: 1, 19: 1},
          bio: "While websites and applications are visual products, they aren’t static as there is constant movement and animation happening concurrently as the users scroll through pages and click around menus.",
          img: "",
          bullets: ["They are the movement and animation specialists in the UX field.", "All the subtle motion dynamics that take place when you use a digital product (the way a screen refreshes, the way menu options fade in and out, etc.) are the domain of motion designers."],

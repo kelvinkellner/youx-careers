@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import { Card, CardDeck } from 'react-bootstrap';
+import Link from 'react-router-dom/Link';
 
 import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
+import CardDeck from 'react-bootstrap/CardDeck';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import ProgressBar from 'react-bootstrap/ProgressBar';
@@ -129,13 +131,13 @@ class Quiz extends Component {
             </Row>
         </>) : this.state.now <= 0 ? (<>
             <Row>
-                <h4 style={{margin: "3.2em"}}>Find out which UX Careers are right for you.</h4>
+                <h4 style={{margin: "2.4em"}}>Find out which UX Careers are right for you.</h4>
             </Row>
             <Row>
-                <h1>Take the Quiz</h1>
+                <h1 style={{fontSize: "3rem", margin: "0.6em"}}>Take the Quiz</h1>
             </Row>
             <Row>
-                <Button onClick={() => this.setState({now: this.state.now+1})}>Start</Button>
+                <Button onClick={() => this.setState({now: this.state.now+1})} style={{width: "16em", height: "3em"}}>Start</Button>
             </Row>
         </>) : (<>
             <Row>   
@@ -160,6 +162,14 @@ class Quiz extends Component {
                         </Card>
                     ))}
                 </CardDeck>
+            </Row>
+            <Row style={{marginTop: "2em"}}>
+                <Col xs={3} style={{padding: 0, marginLeft: "5.4em"}}><Button style={{float: "right", marginRight: "0.4em"}}><h5>Sign up</h5></Button></Col>
+                <Col style={{padding: 0, width: "360px"}}><h5 style={{marginTop: "0.4em"}}>to save your results!</h5></Col>
+            </Row>
+            <Row><p style={{marginBottom: "0.4em"}}>or...</p></Row>
+            <Row>
+                <Link to="/careers"><h5>Explore all careers</h5></Link>
             </Row>
         </>);
         return(

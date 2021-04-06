@@ -8,17 +8,25 @@ class LoginController extends Component {
         this.handleLogoutClick = this.handleLogoutClick.bind(this);
         this.handleLoginClick = this.handleLoginClick.bind(this);
         this.handleRegisterClick = this.handleRegisterClick.bind(this);
-        this.state = {isLoggedIn: false};
+        this.state = {
+            isLoggedIn: false,
+            email: null,
+            password: null
+        };
     }
 
     handleLogoutClick() {
-        this.setState({isLoggedIn: false});
+        this.setState({ isLoggedIn: false, email: null, password: null });
     }
     handleLoginClick() {
-        this.setState({isLoggedIn: true});
+        const email = prompt("Email");
+        const password = prompt("Password");
+        this.setState({ isLoggedIn: true, email: email, password: password });
     }
     handleRegisterClick() {
-        this.setState({isLoggedIn: true});
+        const email = prompt("Email");
+        const password = prompt("Password");
+        this.setState({ isLoggedIn: true, email: email, password: password });
     }
 
     render() {

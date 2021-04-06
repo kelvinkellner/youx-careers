@@ -22,6 +22,7 @@ class Careers extends Component {
     }
     handleJobClick(job) {
         this.setState({showSpecificCareer: true, job: job});
+        global.job = job;
     }
     render() {
         const jList = Object.values(jobs);
@@ -36,7 +37,7 @@ class Careers extends Component {
                     <Button variant="secondary" style={{width: "100%", marginTop: "1.2em"}}>My Pins</Button>
                     <Button style={{width: "100%", height: "4em", marginTop: "1.2em"}}>Pin to Profile</Button>
                 </Col>
-                <Col xs={12} lg={6}>
+                <Col xs={12} lg={6} style={{marginLeft: "1em"}}>
                     <h1>{job.title}</h1>
                         <p>{job.bio}</p>
                         <ul>{job.bullets.map(item => <li>{item}</li>)}</ul>
@@ -47,7 +48,8 @@ class Careers extends Component {
                     <h4 style={{marginTop: "1.6em"}}>You will enjoy being a {job.title} if you...</h4>
                         <ol>{job.willenjoyif.map(item => <li>{item}</li>)}</ol>
                 </Col>
-                <Col xs={12} lg={3} style={{marginLeft: "4em"}}>
+                <Col xs={12} lg={3} style={{marginLeft: "3em"}}>
+                    <Image fluid src={job.img} alt={job.title + ' icon'} style={{width: "14em", height: "13.2em", margin: "0 0 0.6em 3.6em"}} />
                     <h4>Tasks</h4>
                         <ul>{job.tasks.map(item => <li>{item}</li>)}</ul>
                     <h4>Skills Needed</h4>
@@ -55,7 +57,6 @@ class Careers extends Component {
                     <h4>Average Salary</h4>
                         <p style={{fontSize: "1.1rem", marginBottom: "-0.2em"}}>${job.salary} / year (median)</p>
                         <p className="hint"><a href="https://www.payscale.com/" target="_blank" rel="noreferrer">2021 in Canada, via PayScale.</a></p>
-                    <Image fluid src={job.img} alt={job.title + ' icon'} style={{width: "14em", height: "13.2em", marginTop: "1.2em"}} />
                 </Col>
             </Row>
         </Container>
