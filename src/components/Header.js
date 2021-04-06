@@ -9,6 +9,7 @@ import LoginController from './LoginController';
 
 class Header extends Component {
     render() {
+        console.log(this.props.global.state);
         return(
             <Container id='header'>
                 <Row>
@@ -22,7 +23,7 @@ class Header extends Component {
                     </Col>
                     <Col className='nav'>
                         <ul className='nav-header'>
-                            <LoginController />
+                            <LoginController global={this.props.global} />
                         </ul>
                     </Col>
                 </Row>

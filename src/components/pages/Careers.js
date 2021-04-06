@@ -20,14 +20,29 @@ class Careers extends Component {
             job: null
         }
     }
-    handleJobClick(job) {
+    handleJobClick(job, key) {
         this.setState({showSpecificCareer: true, job: job});
-        global.job = job;
+        this.props.global.setState({ tempJob: job, tempKey: key });
+    }
+    handlePinPressed(job, key) {
+        if(this.props.global.state.isLoggedIn) {
+            const pins = this.props.global.state.pins;
+            if(!(key in pins)) {
+                pins[key] = job;
+                this.props.global.setState({ pins: pins });
+                alert(job.title + ' successfully pinned!');
+            } else {
+                alert("Already pinned!");
+            }
+        } else {
+            alert("Please log in or sign up to save pins!");
+        }
     }
     render() {
-        const jList = Object.values(jobs);
+        const kList = Object.keys(jobs);
         const showSpecificCareer = this.state.showSpecificCareer;
         const job = this.state.job;
+        const key = this.props.global.state.tempKey;
         const show = showSpecificCareer ? (
         <Container id='specific-career' className='main'>
             <Row style={{height: "100%"}}>
@@ -35,7 +50,7 @@ class Careers extends Component {
                     <Button variant="secondary" onClick={() => this.setState({showSpecificCareer: false, job: null})} style={{width: "100%"}}>Go Back</Button>
                     <Button as={Link} to="/" variant="secondary" style={{width: "100%", marginTop: "1.2em"}}>Retake Quiz</Button>
                     <Button variant="secondary" style={{width: "100%", marginTop: "1.2em"}}>My Pins</Button>
-                    <Button style={{width: "100%", height: "4em", marginTop: "1.2em"}}>Pin to Profile</Button>
+                    <Button style={{width: "100%", height: "4em", marginTop: "1.2em"}} onClick={() => this.handlePinPressed(job, key) }>Pin to Profile</Button>
                 </Col>
                 <Col xs={12} lg={6} style={{marginLeft: "1em"}}>
                     <h1>{job.title}</h1>
@@ -64,10 +79,10 @@ class Careers extends Component {
         <Container id='careers' className='main'>
             <Row>
                 <CardDeck style={{padding: "0 8em"}}>
-                    {jList.map((job) => (
+                    {kList.map((key) => (
                         <Card className="career-page-card" style={{minWidth: "20%", marginBottom: "2em", alignItems: "center"}}>
-                            <Card.Img variant="top" src={job.img} style={{width: "12em", height: "11em", margin: "1.6em 0"}} />
-                            <Button style={{borderRadius: "0 0 3px 3px", width: "100%"}} onClick={() => this.handleJobClick(job, this)}>{job.title}</Button>
+                            <Card.Img variant="top" src={jobs[key].img} style={{width: "12em", height: "11em", margin: "1.6em 0"}} />
+                            <Button style={{borderRadius: "0 0 3px 3px", width: "100%"}} onClick={() => this.handleJobClick(jobs[key], key)}>{jobs[key].title}</Button>
                         </Card>
                     ))}
                 </CardDeck>
