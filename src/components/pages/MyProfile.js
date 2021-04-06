@@ -6,8 +6,23 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 
 class MyProfile extends Component {
+    constructor(props) {
+        super(props);
+        this.handleUnpin = this.handleUnpin.bind(this);
+    }
+    handleUnpin(key) {
+        const pins = this.props.global.state.pins;
+        if(key in pins) {
+            delete pins[key];
+            this.props.global.setState({ pins: pins });
+        }
+    }
     render() {
-        const problemAlert = () => { alert("Sorry, this feature does not exist yet!"); }
+        const current = new Date();
+        const date = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
+        const problemAlert = () => { alert("Sorry, this feature does not exist yet!") };
+        const pins = this.props.global.state.pins;
+        const quizHistory = this.props.global.state.quizHistory;
         return(
             <Container id='my-profile' className='main'>
                 <Row>
@@ -16,61 +31,52 @@ class MyProfile extends Component {
                 <Row style={{width: "80%", marginTop: "2em"}}>
                     <Col style={{padding: 0}}>
                         <h4>Pinned Careers</h4>
-                        <Row className='pinned-section'>
-                            <Col xs={2}>
-                                <p>[UX Career Title]</p>
-                            </Col>
-                            <Col fluid />
-                            <Col xs={2}>
-                                <Button onClick={problemAlert}>Unpin</Button>
-                            </Col>
-                        </Row>
-                    </Col>
-                </Row>
-                <Row style={{marginTop: "0.2em", width: "80%"}}>
-                    <Col style={{padding: 0}}>
-                        <Row className='pinned-section'>
-                            <Col xs={2}>
-                                <p>[UX Career Title]</p>
-                            </Col>
-                            <Col fluid />
-                            <Col xs={2}>
-                                <Button onClick={problemAlert}>Unpin</Button>
-                            </Col>
-                        </Row>
+                        {Object.keys(pins).length > 0 ? (
+                            Object.keys(pins).map(key => 
+                                <Row className='pinned-section' style={{marginBottom: "0.2em"}}>
+                                    <Col xs={2}>
+                                        <p>{pins[key].title}</p>
+                                    </Col>
+                                    <Col fluid />
+                                    <Col xs={2}>
+                                        <Button onClick={() => this.handleUnpin(key)}>Unpin</Button>
+                                    </Col>
+                                </Row>
+                                )
+                        ) : (
+                            <Row className='pinned-section'>
+                                <Col xs={12}>
+                                    <p>No pinned careers. You should pin one!</p>
+                                </Col>
+                            </Row>
+                        )}
                     </Col>
                 </Row>
                 <Row style={{width: "80%", marginTop: "3em"}}>
                     <Col style={{padding: 0}}>
                         <h4>Past Quiz Results</h4>
-                        <Row className='pinned-section'>
-                            <Col xs={2}>
-                                <p>01/01/2021</p>
-                            </Col>
-                            <Col xs={3}>
-                                <p>[Quiz Results Title]</p>
-                            </Col>
-                            <Col fluid />
-                            <Col xs={2}>
-                                <Button onClick={problemAlert}>View Results</Button>
-                            </Col>
-                        </Row>
-                    </Col>
-                </Row>
-                <Row style={{marginTop: "0.2em", width: "80%"}}>
-                    <Col style={{padding: 0}}>
-                        <Row className='pinned-section'>
-                            <Col xs={2}>
-                                <p>01/01/2021</p>
-                            </Col>
-                            <Col xs={3}>
-                                <p>[Quiz Results Title]</p>
-                            </Col>
-                            <Col fluid />
-                            <Col xs={2}>
-                                <Button onClick={problemAlert}>View Results</Button>
-                            </Col>
-                        </Row>
+                            { quizHistory.length > 0 ? (
+                                quizHistory.map(quiz => (
+                                    <Row className='pinned-section'>
+                                        <Col xs={2}>
+                                            <p>{quiz.date}</p>
+                                        </Col>
+                                        <Col xs={3}>
+                                            <p>{quiz.title}</p>
+                                        </Col>
+                                        <Col fluid />
+                                        <Col xs={2}>
+                                            <Button onClick={problemAlert}>View Results</Button>
+                                        </Col>
+                                    </Row>
+                                ))
+                            ) : (
+                                <Row className='pinned-section'>
+                                    <Col xs={12}>
+                                        <p>No past quiz results. Take the quiz!</p>
+                                    </Col>
+                                </Row>
+                            ) }
                     </Col>
                 </Row>
                 <Row>

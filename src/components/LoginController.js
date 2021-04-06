@@ -13,7 +13,14 @@ class LoginController extends Component {
     }
 
     handleLogoutClick() {
-        this.props.global.setState({ isLoggedIn: false, email: null, password: null });
+        const user = {
+            ...this.props.global.state.user,
+            quizHistory: this.props.global.state.quizHistory,
+            pins: this.props.global.state.pins
+        }
+        const userDB = this.props.global.state.userDB;
+        userDB[user.email] = user;
+        this.props.global.setState({ isLoggedIn: false, user: null, userDB: userDB });
     }
     handleLoginClick() {
         const email = prompt("Email");

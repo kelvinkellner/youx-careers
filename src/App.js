@@ -36,7 +36,7 @@ class App extends Component {
           <Route path="/careers"><Careers global={this}/></Route>
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
-          <Route path="/my-profile" component={MyProfile} />
+          <Route path="/my-profile"><MyProfile global={this}/></Route>
           <Footer />
         </div>
       </Router>
