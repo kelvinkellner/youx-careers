@@ -49,7 +49,7 @@ class Careers extends Component {
                 <Col xs={12} lg={2} style={{paddingTop: "0.8em"}}>
                     <Button variant="secondary" onClick={() => this.setState({showSpecificCareer: false, job: null})} style={{width: "100%"}}>Go Back</Button>
                     <Button as={Link} to="/" variant="secondary" style={{width: "100%", marginTop: "1.2em"}}>Retake Quiz</Button>
-                    <Button variant="secondary" style={{width: "100%", marginTop: "1.2em"}}>My Pins</Button>
+                    <Button as={Link} to="/my-profile" variant="secondary" style={{width: "100%", marginTop: "1.2em"}}>My Pins</Button>
                     <Button style={{width: "100%", height: "4em", marginTop: "1.2em"}} onClick={() => this.handlePinPressed(job, key) }>Pin to Profile</Button>
                 </Col>
                 <Col xs={12} lg={6} style={{marginLeft: "1em"}}>

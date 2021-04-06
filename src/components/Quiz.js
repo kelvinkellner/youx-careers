@@ -72,6 +72,18 @@ class Quiz extends Component {
         console.log(jobTotals);
         console.log(max);
         console.log(results);
+        if(this.props.global.state.isLoggedIn){
+            const current = new Date();
+            const date = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
+            const title = "[User's Quiz Title]";
+            const quizHistory = this.props.global.state.quizHistory;
+            quizHistory.unshift({
+                date: date,
+                title: title,
+                results: results,
+                questions: questions
+            })
+        }
         return results;
     }
     render() {
@@ -164,10 +176,14 @@ class Quiz extends Component {
                 </CardDeck>
             </Row>
             <Row style={{marginTop: "2em"}}>
-                <Col xs={3} style={{padding: 0, marginLeft: "5.4em"}}><Button style={{float: "right", marginRight: "0.4em"}}><h5>Sign up</h5></Button></Col>
-                <Col style={{padding: 0, width: "360px"}}><h5 style={{marginTop: "0.4em"}}>to save your results!</h5></Col>
+                {this.props.global.state.isLoggedIn ? (
+                    <Col style={{padding: 0}}><h5 style={{marginTop: "0.4em"}}>Your results have been saved!</h5></Col>
+                ) : (<>
+                    <Col xs={3} style={{padding: 0, marginLeft: "5.4em"}}><Button style={{float: "right", marginRight: "0.4em", alignText: "center"}} onClick={() => alert('Functionality has not been added to this button yet. Try the other one!')}><h5>Sign up</h5></Button></Col>
+                    <Col style={{padding: 0, width: "360px"}}><h5 style={{marginTop: "0.4em"}}>to save your results!</h5></Col>
+                </>)}
             </Row>
-            <Row><p style={{marginBottom: "0.4em"}}>or...</p></Row>
+            {this.props.global.state.isLoggedIn? <></> : <Row><p style={{marginBottom: "0.4em"}}>or...</p></Row>}
             <Row>
                 <Link to="/careers"><h5>Explore all careers</h5></Link>
             </Row>

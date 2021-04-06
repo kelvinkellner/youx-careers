@@ -18,15 +18,13 @@ class MyProfile extends Component {
         }
     }
     render() {
-        const current = new Date();
-        const date = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
         const problemAlert = () => { alert("Sorry, this feature does not exist yet!") };
         const pins = this.props.global.state.pins;
         const quizHistory = this.props.global.state.quizHistory;
         return(
             <Container id='my-profile' className='main'>
                 <Row>
-                    <h2>Hello, [Name]!</h2>
+                    <h2>Hello, {this.props.global.state.isLoggedIn ? this.props.global.state.user.email : "Guest"}!</h2>
                 </Row>
                 <Row style={{width: "80%", marginTop: "2em"}}>
                     <Col style={{padding: 0}}>
@@ -57,7 +55,7 @@ class MyProfile extends Component {
                         <h4>Past Quiz Results</h4>
                             { quizHistory.length > 0 ? (
                                 quizHistory.map(quiz => (
-                                    <Row className='pinned-section'>
+                                    <Row className='pinned-section' style={{marginBottom: "0.2em"}}>
                                         <Col xs={2}>
                                             <p>{quiz.date}</p>
                                         </Col>
@@ -80,7 +78,7 @@ class MyProfile extends Component {
                     </Col>
                 </Row>
                 <Row>
-                    <p style={{marginTop: "3em"}}>Please note: this page would normally fill will user's information, although no database has been setup for this prototype.</p>
+                    <p style={{marginTop: "3em"}}>Please note: this prototype does not use a database, all information is stored temporarily and will be lost after refreshing.</p>
                 </Row>
             </Container>
         );

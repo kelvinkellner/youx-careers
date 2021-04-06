@@ -20,14 +20,15 @@ class LoginController extends Component {
         }
         const userDB = this.props.global.state.userDB;
         userDB[user.email] = user;
-        this.props.global.setState({ isLoggedIn: false, user: null, userDB: userDB });
+        this.props.global.setState({ isLoggedIn: false, user: null, quizHistory: [], pins: {}, userDB: userDB });
     }
     handleLoginClick() {
         const email = prompt("Email");
         const password = prompt("Password");
         if(email in this.props.global.state.userDB) {
             if(this.props.global.state.userDB[email].password === password) {
-                this.props.global.setState({ isLoggedIn: true, user: this.props.global.state.userDB[email] });
+                const user = this.props.global.state.userDB[email];
+                this.props.global.setState({ isLoggedIn: true, user: user, pins: user.pins, quizHistory: user.quizHistory });
                 alert('You have logged in successfully!');
             } else {
                 alert("Incorrect password.");

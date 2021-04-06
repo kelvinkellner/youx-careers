@@ -8,7 +8,7 @@ class Home extends Component {
     render() {
         return(
             <Container id='home' className='main'>
-                <Quiz />
+                <Quiz global={this.props.global} />
             </Container>
         );
     }
