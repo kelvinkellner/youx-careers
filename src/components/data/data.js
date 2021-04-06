@@ -7,20 +7,6 @@ const q = (msg) => ({
     choice: 0
 });
 
-const job = (title, weights, bio, img, bullets, responsibilities, requirements, willenjoyif, tasks, skills, salary) => ({
-    title: title,
-    weights: weights,
-    bio: bio,
-    img: img,
-    bullets: bullets,
-    responsibilities: responsibilities,
-    requirements: requirements,
-    willenjoyif: willenjoyif,
-    tasks: tasks,
-    skills: skills,
-    salary: salary
-});
-
 const questions = {
      1: q("I have experience using digital design tools (Adobe Photoshop, Illustrator)."),
      2: q("I focus on the pictures when reading articles or books."),
@@ -52,6 +38,7 @@ const questions = {
     28: q("I have experience using video-editing software."),
     29: q("I have experience animating.")
 };
+
 const jobs = {
    1: {
          title: "Visual Designer",
@@ -108,7 +95,7 @@ const jobs = {
    5: {
          title:"Content Strategist", 
          weight: {18: 1, 19: 1, 20: 1, 21: 1},
-         bio: "They play the role of the most critical area that designers often overlook: words. As copy is the most important part of design, Copywriting is a specific role for that. As a Content Strategist, you will be mainly contributing to the Prototype process of design thinking, and you will be crucial in finalizing the product before launch (I.e. Ensuring that everything is properly checked and accurate to the design proposal)."),
+         bio: "They play the role of the most critical area that designers often overlook: words. As copy is the most important part of design, Copywriting is a specific role for that. As a Content Strategist, you will be mainly contributing to the Prototype process of design thinking, and you will be crucial in finalizing the product before launch (I.e. Ensuring that everything is properly checked and accurate to the design proposal).",
          img: "",
          bullets: ["Also known as UX writers or Copywriters.", "Provide a copy of the user interface so that people can navigate, use and troubleshoot the product easily."],
          responsibilities: ["Create effective title names and navigation menu items so that users can intuitively get to the page or screen they want.", "Define and maintain a vision for the product’s language that will be applied across the board.", "Writing error messages that are simple, effective and blame-free so that in an event of unfortunate error, users would feel assured than being annoyed.", "Creating effective email or newsletters to achieve product goals (After a user signs up for an account).", "Drive inbound traffic.", "Setting guidelines for the tone, style and voice of all brand content.", "Setting editorial strategy to make content consistent and compelling across all delivery streams analyzing content that is and isn’t working for the brand.", "Create specifications and appropriate content for brand’s designated audience.", "Strategize and improve content delivery and promotion."],
@@ -122,7 +109,7 @@ const jobs = {
          title: "UX Engineer", 
          weight: {18: 1, 22: 1, 23: 1, 24: 1},
          bio: "UX engineer is a front-end engineer who facilitates effective design collaboration between the design and engineering teams. They are also responsible for producing prototypes that require coding. Much like a UX designer, their job is to turn a complex problem into a more intuitive solution.",
-         img: "",
+         img: UXEngineerImg,
          bullets: ["TODO: MISSING DATA. Consider making optional?"],
          responsibilities: ["TODO: MISSING DATA, make separate from tasks"],
          requirements: ["A portfolio that demonstrates all skills acquired and specific areas of interests within the field", "HTML, CSS, and JavaScript experience", "Experience with responsive design programming"],
@@ -134,7 +121,7 @@ const jobs = {
    7: {
          title: "UX Unicorn",
          weight: {25: 1, 1: 0.5, 26: 0.5, 22: 0.5, 4: 0.5, 15: 0.5, 18: 0.5, 14: 0.5, 9: 0.5, 27: 1},
-         bio: "Although the name sounds new and mostly unfamiliar to people, don’t be confused! In the world of start-ups, “Unicorn” refers to those who not only possess the usual skill set for UX design but also have additional skills from other domains, as they can provide multiple values to business with a different skill set (I.e. covering other areas). They can be also considered as programmers who live code the product’s accessibility and functions (I.e. Browser)."),
+         bio: "Although the name sounds new and mostly unfamiliar to people, don’t be confused! In the world of start-ups, “Unicorn” refers to those who not only possess the usual skill set for UX design but also have additional skills from other domains, as they can provide multiple values to business with a different skill set (I.e. covering other areas). They can be also considered as programmers who live code the product’s accessibility and functions (I.e. Browser).",
          img: "",
          bullets: ["It typically refers to an UX designer who’s proficient in design AND frontend development.", "Part of the 5 design thinking processes, plus Frontend development.", "Considered to be rare as only people who are talented enough to do Frontend work are considered to be one.", "In charge of the entire design process, and translate their designs into live code.", "Shares similar traits to UX designer and UX engineer, thus is a combination of both. Therefore acts concurrently to the aforementioned two roles at once."],
          responsibilities: ["Carries the same responsibilities as UX designer.", "Develop live frontend prototypes, which can be used to test on users and gather realistic results for more data.", "Implementing Frontend code of design (I.e. Focusing on the browser outlook).", "User research usability testing, journey mapping and experience mapping tasks", "Data analytics and behavioral insights", "Interactive prototyping", "Development collaboration", "Visual design and creativity "],

@@ -55,7 +55,7 @@ class Careers extends Component {
                     <h4>Average Salary</h4>
                         <p style={{fontSize: "1.1rem", marginBottom: "-0.2em"}}>${job.salary} / year (median)</p>
                         <p className="hint"><a href="https://www.payscale.com/" target="_blank" rel="noreferrer">2021 in Canada, via PayScale.</a></p>
-                    {() => job.img ? <Image fluid src={job.img} alt={job.title + ' icon'} /> : <></>}
+                    <Image fluid src={job.img} alt={job.title + ' icon'} style={{width: "14em", height: "13.2em", marginTop: "1.2em"}} />
                 </Col>
             </Row>
         </Container>
