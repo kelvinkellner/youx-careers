@@ -5,6 +5,7 @@ import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 
+import { jobs } from '../data/data';
 import LinkButton from '../LinkButton';
 
 class MyProfile extends Component {
@@ -21,6 +22,9 @@ class MyProfile extends Component {
     }
     handleViewResults(quiz) {
         this.props.global.setState({ isQuizActive: false, tempQuiz: quiz });
+    }
+    handleCareerClicked(job) {
+        this.props.global.setState({ tempJob: job });
     }
     render() {
         const pins = this.props.global.state.pins;
@@ -40,8 +44,11 @@ class MyProfile extends Component {
                                         <p>{pins[key].title}</p>
                                     </Col>
                                     <Col fluid />
-                                    <Col xs={2}>
-                                        <Button onClick={() => this.handleUnpin(key)}>Unpin</Button>
+                                    <Col xs={1} style={{padding: 0, margin: "0 0.4em"}}>
+                                        <Button variant="link" onClick={() => this.handleUnpin(key)}>Unpin</Button>
+                                    </Col>
+                                    <Col xs={2} style={{padding: 0, margin: "0 0.4em"}}>
+                                        <LinkButton onClick={() => this.handleCareerClicked(jobs[key])} to={'/careers/' + pins[key].title.toLowerCase().replace(' ', '-')}>View Career</LinkButton>
                                     </Col>
                                 </Row>
                                 )
@@ -67,7 +74,7 @@ class MyProfile extends Component {
                                             <p>{quiz.title}</p>
                                         </Col>
                                         <Col fluid />
-                                        <Col xs={2}>
+                                        <Col xs={2} style={{padding: 0, margin: "0 0.4em"}}>
                                             <LinkButton to="/" onClick={() => this.handleViewResults(quiz.quiz)}>View Results</LinkButton>
                                         </Col>
                                     </Row>
