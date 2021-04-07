@@ -41,8 +41,8 @@ class LoginController extends Component {
         let show;
         if(isLoggedIn) {
             show = <>
-                <LinkButton to='/my-profile' className='btn-header'>My Profile</LinkButton>
-                <Button onClick={this.handleLogoutClick} variant="secondary" className='btn-header'>Log Out</Button>
+                <LinkButton to='/my-profile' className='btn-header' onClick={() => this.props.global.setState({ tempJob: null })}>My Profile</LinkButton>
+                <Button onClick={this.handleLogoutClick} variant="secondary" className='btn-header' onClick={() => this.props.global.setState({ tempJob: null })}>Log Out</Button>
                 </>
         } else {
             show = <>

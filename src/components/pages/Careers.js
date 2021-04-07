@@ -10,18 +10,14 @@ import Image from 'react-bootstrap/Image';
 import Row from 'react-bootstrap/Row';
 
 import { jobs } from '../data/data';
+import LinkButton from '../LinkButton';
 
 class Careers extends Component {
     constructor(props) {
         super(props);
         this.handleJobClick = this.handleJobClick.bind(this);
-        this.state = {
-            showSpecificCareer: false,
-            job: null
-        }
     }
     handleJobClick(job, key) {
-        this.setState({showSpecificCareer: true, job: job});
         this.props.global.setState({ tempJob: job, tempKey: key });
     }
     handlePinPressed(job, key) {
@@ -40,14 +36,14 @@ class Careers extends Component {
     }
     render() {
         const kList = Object.keys(jobs);
-        const showSpecificCareer = this.state.showSpecificCareer;
-        const job = this.state.job;
+        const showSpecificCareer = this.props.global.state.tempJob === null ? false : true;
+        const job = this.props.global.state.tempJob;
         const key = this.props.global.state.tempKey;
         const show = showSpecificCareer ? (
         <Container id='specific-career' className='main'>
             <Row style={{height: "100%"}}>
                 <Col xs={12} lg={2} style={{paddingTop: "0.8em"}}>
-                    <Button variant="secondary" onClick={() => this.setState({showSpecificCareer: false, job: null})} style={{width: "100%"}}>Go Back</Button>
+                    <LinkButton to='/careers' variant="secondary" onClick={() => { this.setState({showSpecificCareer: false, job: null}); this.props.global.setState({ tempJob: null });}} style={{width: "100%"}}>All Careers</LinkButton>
                     <Button as={Link} to="/" variant="secondary" style={{width: "100%", marginTop: "1.2em"}}>Retake Quiz</Button>
                     <Button as={Link} to="/my-profile" variant="secondary" style={{width: "100%", marginTop: "1.2em"}}>My Pins</Button>
                     <Button style={{width: "100%", height: "4em", marginTop: "1.2em"}} onClick={() => this.handlePinPressed(job, key) }>Pin to Profile</Button>
@@ -82,7 +78,7 @@ class Careers extends Component {
                     {kList.map((key) => (
                         <Card className="career-page-card" style={{minWidth: "20%", marginBottom: "2em", alignItems: "center"}}>
                             <Card.Img variant="top" src={jobs[key].img} style={{width: "12em", height: "11em", margin: "1.6em 0"}} />
-                            <Button style={{borderRadius: "0 0 3px 3px", width: "100%"}} onClick={() => this.handleJobClick(jobs[key], key)}>{jobs[key].title}</Button>
+                            <LinkButton to={'/careers/' + jobs[key].title.toLowerCase().replace(' ', '-')} style={{borderRadius: "0 0 3px 3px", width: "100%"}} onClick={() => this.handleJobClick(jobs[key], key)}>{jobs[key].title}</LinkButton>
                         </Card>
                     ))}
                 </CardDeck>
