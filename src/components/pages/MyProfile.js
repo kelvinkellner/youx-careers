@@ -5,6 +5,8 @@ import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 
+import LinkButton from '../LinkButton';
+
 class MyProfile extends Component {
     constructor(props) {
         super(props);
@@ -17,12 +19,14 @@ class MyProfile extends Component {
             this.props.global.setState({ pins: pins });
         }
     }
+    handleViewResults(quiz) {
+        this.props.global.setState({ isQuizActive: false, tempQuiz: quiz });
+    }
     render() {
-        const problemAlert = () => { alert("Sorry, this feature does not exist yet!") };
         const pins = this.props.global.state.pins;
         const quizHistory = this.props.global.state.quizHistory;
         return(
-            <Container id='my-profile' className='main'>
+            <Container id='my-profile' className='main' style={{paddingLeft: "2em", paddingTop: "2em"}}>
                 <Row>
                     <h2>Hello, {this.props.global.state.isLoggedIn ? this.props.global.state.user.email : "Guest"}!</h2>
                 </Row>
@@ -64,7 +68,7 @@ class MyProfile extends Component {
                                         </Col>
                                         <Col fluid />
                                         <Col xs={2}>
-                                            <Button onClick={problemAlert}>View Results</Button>
+                                            <LinkButton to="/" onClick={() => this.handleViewResults(quiz.quiz)}>View Results</LinkButton>
                                         </Col>
                                     </Row>
                                 ))

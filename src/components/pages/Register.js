@@ -27,12 +27,11 @@ class Login extends Component {
         } else if(email === '' || password === '') {
             alert("Please enter a valid email and password.");
         } else {
-            const user = { email: email, password: password, quizHistory: [], pins: {} };
+            const user = { email: email, password: password, quizHistory: this.props.global.state.quizHistory, pins: {} };
             this.props.global.setState({ isLoggedIn: true, user: user });
             const userDB = this.props.global.state.userDB;
             userDB[email] = user;
             this.props.global.setState({ userDB: userDB });
-            alert("You have signed up successfully!");
         }
     }
     render() {
@@ -64,7 +63,7 @@ class Login extends Component {
             ) : (
             <Container id='register' className='main' style={{minHeight: "23.8em"}}>
                 <Row style={{margin: "12em 0 2em 0"}}>
-                    <h1>You are already signed in!</h1>
+                    <h1>You are now registered!</h1>
                 </Row>
                 <Row>
                     <LinkButton to='/my-profile'>My Profile</LinkButton>

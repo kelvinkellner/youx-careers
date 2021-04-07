@@ -13,44 +13,99 @@ import Row from 'react-bootstrap/Row';
 import { jobs, questions } from './data/data';
 import LinkButton from './LinkButton';
 
+const deepcopy = (inObject) => {
+    let outObject, value, key
+    if (typeof inObject !== "object" || inObject === null) {
+      return inObject // Return the value if inObject is not an object
+    }
+    // Create an array or object to hold the values
+    outObject = Array.isArray(inObject) ? [] : {}
+    for (key in inObject) {
+      value = inObject[key]
+      // Recursively (deep) copy for nested objects, including arrays
+      outObject[key] = deepcopy(value)
+    }
+    return outObject
+}
+
 class Quiz extends Component {
     constructor(props) {
         super(props);
+        this.newQuiz = this.newQuiz.bind(this);
         this.handleNextClick = this.handleNextClick.bind(this);
         this.handleBackClick = this.handleBackClick.bind(this);
         this.calcTopJobs = this.calcTopJobs.bind(this);
-        this.state = {
-            ids: Object.keys(questions),
-            now: 0,
-            total: Object.keys(questions).length,
-            choice: 0
+        if(this.props.global.state.tempQuiz == null) {
+            const q = deepcopy(questions);
+            this.state = {
+                ids: Object.keys(q),
+                now: 0,
+                total: Object.keys(q).length,
+                choice: 0,
+                questions: q,
+                results: []
+            }
+            this.props.global.setState({ isQuizActive: true, tempQuiz: this.state });
+        } else {
+            this.state = this.props.global.state.tempQuiz;
+            if (!this.props.global.state.isQuizActive) {
+                console.log("Loading finished quiz...");
+                this.state.now = this.props.global.state.tempQuiz.total+1;
+            }
         }
     }
     handleNextClick() {
         if(this.state.now === this.state.total) {
-            questions[this.state.ids[this.state.now-1]].choice = this.state.choice;
-            this.setState({now: this.state.now+1});
+            const q = this.state.questions[this.state.ids[this.state.now-1]];
+            q.choice = this.state.choice;
+            const results = this.calcTopJobs();
+            console.log(this.state);
+            this.setState({ now: this.state.now+1, questions: q, results: results });
+            if(this.props.global.state.isQuizActive) {
+                const history = this.props.global.state.quizHistory;
+                const current = new Date();
+                const date = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
+                const title = prompt("What would you like to title this quiz attempt?");
+                history.unshift({
+                    date: date,
+                    title: title === "" ? "[User's Quiz Title]" : title,
+                    quiz: {
+                        questions: q,
+                        ids: this.state.ids,
+                        results: results
+                    }
+                });
+                this.props.global.setState({ tempQuiz: { ...this.state, results: results }, quizHistory: history, isQuizActive: false });
+            } else {
+                this.props.global.setState({ tempQuiz: this.state })
+            }
         } else {
-            questions[this.state.ids[this.state.now-1]].choice = this.state.choice;
-            this.setState({choice: questions[this.state.ids[this.state.now]].choice, now: this.state.now+1});
+            const q = this.state.questions;
+            q[this.state.ids[this.state.now-1]].choice = this.state.choice;
+            this.setState({choice: q[this.state.ids[this.state.now]].choice, now: this.state.now+1, questions: q });
+            this.props.global.setState({ tempQuiz: this.state });
         }
+        
     }
     handleBackClick() {
         if(this.state.now === 1) {
             this.setState({now: this.state.now-1});
         } else {
-            questions[this.state.ids[this.state.now-1]].choice = this.state.choice;
-            this.setState({choice: questions[this.state.ids[this.state.now-2]].choice, now: this.state.now-1});
+            const q = this.state.questions;
+            q[this.state.ids[this.state.now-1]].choice = this.state.choice;
+            this.setState({choice: q[this.state.ids[this.state.now-2]].choice, now: this.state.now-1, questions: q });
         }
+        this.props.global.setState({ tempQuiz: this.state });
     }
     calcTopJobs() {
         const jobTotals = {};
         const keys = Object.keys(jobs);
+        const q = this.state.questions;
         for(let i=0; i<keys.length; i++) {
             let total = 0;
             const weights = Object.keys(jobs[keys[i]].weights);
             for(let j=0; j<weights.length; j++) {
-                total += jobs[keys[i]].weights[weights[j]] * (questions[weights[j]].choice-3);
+                total += jobs[keys[i]].weights[weights[j]] * (q[weights[j]].choice === 0 ? 0 : q[weights[j]].choice-3);
             }
             jobTotals[keys[i]] = total;
         }
@@ -72,29 +127,28 @@ class Quiz extends Component {
         }
         const results = max.map(key => jobs[key]);
         console.log(jobTotals, results);
-        if(this.props.global.state.isLoggedIn){
-            const current = new Date();
-            const date = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
-            const title = "[User's Quiz Title]";
-            const quizHistory = this.props.global.state.quizHistory;
-            quizHistory.unshift({
-                date: date,
-                title: title,
-                results: results,
-                questions: questions
-            })
-        }
         return results;
+    }
+    newQuiz() {
+        console.log("Resetting quiz...");
+        const q = deepcopy(questions);
+        const newQuiz = {
+            ids: Object.keys(q),
+            now: 0,
+            total: Object.keys(q).length,
+            choice: 0,
+            questions: q,
+            results: []
+        }
+        this.setState(newQuiz);
+        this.props.global.setState({ isQuizActive: true, tempQuiz: newQuiz });
     }
     handleCareerClicked(job) {
         this.props.global.setState({ tempJob: job });
     }
     render() {
-        const q = this.state.now > 0 ? questions[this.state.ids[this.state.now-1]] : null;
-        let results = []
-        if(this.state.now > this.state.total) {
-            results = this.calcTopJobs();
-        }
+        const q = this.state.now > 0 ? this.state.questions[this.state.ids[this.state.now-1]] : null;
+        let results = this.state.results;
         const show = this.state.now > 0 && this.state.now <= this.state.total ? (<>
             <Row style={{width: "100%"}}>
                 <Col>
@@ -190,7 +244,11 @@ class Quiz extends Component {
             </Row>
             {this.props.global.state.isLoggedIn? <></> : <Row><p style={{marginBottom: "0.4em"}}>or...</p></Row>}
             <Row>
-                <Link to="/careers" style={{marginBottom: "2em"}}><h5>Explore all careers</h5></Link>
+                <Link to="/careers"><h5>Explore all careers</h5></Link>
+            </Row>
+            <Row style={{margin: "4em"}}>
+                <h3>Take the quiz again:</h3>
+                <Button style={{fontSize: "1.1rem", marginLeft: "0.4em", marginBottom: "3em"}} onClick={this.newQuiz}><h5>Restart</h5></Button>
             </Row>
         </>);
         return(

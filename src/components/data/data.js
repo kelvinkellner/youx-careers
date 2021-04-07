@@ -152,7 +152,198 @@ const jobs = {
       },
 }
 
+let defaultUsers = {
+   "friendlyuser13@gmail.com": {
+   email: "friendlyuser13@gmail.com",
+   password: "hunter2",
+   pins: {
+      1: {
+         "title": "Visual Designer"
+      },
+      9: {
+         "title": "Motion Designer"
+      }
+   },
+   quizHistory: [
+      {
+         "date": "12/02/2020",
+         "title": "Careers and civics class",
+         "quiz": {
+            "questions": {
+            "message": "I have experience animating.",
+            "choice": 4
+            },
+            "ids": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "26",
+            "27",
+            "28",
+            "29"
+            ],
+            "results": [
+            {
+               "title": "Visual Designer",
+               "weights": {
+                  "1": 1,
+                  "2": 1,
+                  "3": 1,
+                  "4": 1,
+                  "5": 1
+               },
+               "bio": "Unlike UX or Product designers, they are more towards specialists than generalists. They take on the job of creating pixel-perfect prototypes that align or remain consistent with the rest of the product. Their main role begins when the production development reaches the Prototyping phase.",
+               "img": "/static/media/visual-design.d5a013d4.svg",
+               "bullets": [
+                  "Sub roles include UI (User Interface) designer and Graphic designers.",
+                  "Focuses on the visual aspect of the product design (I.e. How they look, what they’re going to look like for the users, how will they appeal to the users via outward appearance."
+               ],
+               "responsibilities": [
+                  "Create or maintain a library of icons, colors and fonts that would be used throughout the product.",
+                  "Transforming UX design goals such as signing up for an account into a set of easy to use and visually appealing designs items and much more.",
+                  "Providing a pleasant and visually attractive user interface and so on to enrich the user’s overall experience.",
+                  "Collaborate with teams to define user interface requirements.",
+                  "Present rough drafts to product managers and/or key stakeholders.",
+                  "Develop prototypes and models to use in products."
+               ],
+               "requirements": [
+                  "Portfolio of related works (logos, animations, graphics, etc.)",
+                  "Proven work experience as a Visual Design, UI Designer or similar role",
+                  "Hands-on experience with image editing and digital sketch software",
+                  "BSc degree in Design, Visual Arts or relevant qualifications"
+               ],
+               "willenjoyif": [
+                  "You enjoy designing and focusing on the artistic aspect of UX design, using colors, typography, use of space and other graphic design elements/concepts.",
+                  "Enjoy creating a visual, pixel-perfect mock-up of a product.",
+                  "Enjoy applying consistent, meaningful and pleasant visuals across a wide range of user flows and contexts."
+               ],
+               "tasks": [
+                  "Pixel-Perfect prototypes",
+                  "Interactive prototypes",
+                  "Visual style guides",
+                  "Icon libraries",
+                  "Design specifications",
+                  "Branding guidelines or materials to supplement the product (I.e. Creating a layout of what they would like on the finished product)."
+               ],
+               "skills": [
+                  "Ability to combine colors, fonts and layouts",
+                  "Strong aesthetics skills",
+                  "Attention to visual detail",
+                  "Ability to meet deadlines while working on team projects"
+               ],
+               "salary": "59,595"
+            },
+            {
+               "title": "Motion Designer",
+               "weights": {
+                  "1": 1,
+                  "4": 1,
+                  "19": 1,
+                  "28": 1,
+                  "29": 1
+               },
+               "bio": "While websites and applications are visual products, they aren’t static as there is constant movement and animation happening concurrently as the users scroll through pages and click around menus.",
+               "img": "/static/media/motion-designer.ccdef284.svg",
+               "bullets": [
+                  "They are the movement and animation specialists in the UX field.",
+                  "All the subtle motion dynamics that take place when you use a digital product (the way a screen refreshes, the way menu options fade in and out, etc.) are the domain of motion designers."
+               ],
+               "responsibilities": [
+                  "Coordinating motion designs with overall UX strategy and research (I.e. Researching how people would like to see their product move and what they don’t like about them).",
+                  "Creating and testing moving product elements, motion graphics and animations."
+               ],
+               "requirements": [
+                  "TODO: MISSING DATA"
+               ],
+               "willenjoyif": [
+                  "You enjoy creating fluid movements for navigation and so on to enrich overall user experience with the product.",
+                  "Create and emphasize with the users on how they perceive the motions on their product."
+               ],
+               "tasks": [
+                  "Creating Motion prototypes",
+                  "Apply the motions of the product (I.e. how they should look and work for the users) to achieve overall user experience and satisfaction"
+               ],
+               "skills": [
+                  "TODO: MISSING DATA"
+               ],
+               "salary": "63,373"
+            },
+            {
+               "title": "Product Designer",
+               "weights": {
+                  "10": 1,
+                  "11": 1,
+                  "12": 1,
+                  "13": 1,
+                  "14": 1
+               },
+               "bio": "While they’re similar in nature to UX designers, the most distinguishing part is that they are specialized in paying special attention towards the product on top of user experience. (I.e. They pay greater attention to detail on how the product will function and benefit their end user).",
+               "img": "/static/media/product-designer.3ff0356e.svg",
+               "bullets": [
+                  "They help with creation of product design goals and developing an interactive roadmap for it (I.e. what they needed to create the specific product, what needs to be done, specifics of their offerings and functions).",
+                  "Has to ensure that their product designs get implemented well."
+               ],
+               "responsibilities": [
+                  "Carries the same responsibilities as UX designer in terms of 5 design thinking processes.",
+                  "Creating and designing the product roadmap for the future plans",
+                  "Collaborating with development and marketing teams to ensure designs can be successfully implemented.",
+                  "Plan and run user tests and other design research to inform design decisions",
+                  "Analyze how new product ties in with market needs and consumer preferences"
+               ],
+               "requirements": [
+                  "Work experience as a Product Designer or similar role",
+                  "Background in designing for mobile-first platforms",
+                  "Experience in industrial design",
+                  "Experience with computer-aided design tools, 3D modeling software, and design programs such as Illustrator and Sketch.",
+                  "BSc/MSc in Product Design, Manufacturing Design Engineering or relevant field"
+               ],
+               "willenjoyif": [
+                  "Enjoy integrating business goals into design and product decisions.",
+                  "Enjoy participating in the entire design process.",
+                  "Able to analyze complex data to synthesize designs for business goals and user needs."
+               ],
+               "tasks": [
+                  "Designing and developing a roadmap for the product, as a reference for developer and marketing teams"
+               ],
+               "skills": [
+                  "Problem solving and analytical skills",
+                  "Experience with user research such as surveys, interviews, and usability testing",
+                  "Understanding of design patterns and foundation in layout and design",
+                  "Creativity in colors, shapes and techniques"
+               ],
+               "salary": "65,338"
+            }
+            ]
+         }
+      }
+   ]
+   }
+}
+
 export {
     jobs,
-    questions
+    questions,
+    defaultUsers
 }

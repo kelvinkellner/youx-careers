@@ -24,7 +24,7 @@ class Careers extends Component {
         if(this.props.global.state.isLoggedIn) {
             const pins = this.props.global.state.pins;
             if(!(key in pins)) {
-                pins[key] = job;
+                pins[key] = { title: job.title };
                 this.props.global.setState({ pins: pins });
                 alert(job.title + ' successfully pinned!');
             } else {

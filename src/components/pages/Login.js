@@ -25,8 +25,8 @@ class Login extends Component {
         if(email in this.props.global.state.userDB) {
             if(this.props.global.state.userDB[email].password === password) {
                 const user = this.props.global.state.userDB[email];
-                this.props.global.setState({ isLoggedIn: true, user: user, pins: user.pins, quizHistory: user.quizHistory });
-                alert('You have logged in successfully!');
+                const history = this.props.global.state.quizHistory.concat(user.quizHistory);
+                this.props.global.setState({ isLoggedIn: true, user: user, pins: user.pins, quizHistory: history });
             } else {
                 alert("Incorrect password.");
             }
@@ -63,7 +63,7 @@ class Login extends Component {
         ) : (
             <Container id='register' className='main' style={{minHeight: "23.8em"}}>
                 <Row style={{margin: "12em 0 2em 0"}}>
-                    <h1>You are already signed in!</h1>
+                    <h1>You are now logged in!</h1>
                 </Row>
                 <Row>
                     <LinkButton to='/my-profile'>My Profile</LinkButton>
