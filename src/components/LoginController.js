@@ -19,7 +19,7 @@ class LoginController extends Component {
         }
         const userDB = this.props.global.state.userDB;
         userDB[user.email] = user;
-        this.props.global.setState({ isLoggedIn: false, user: null, quizHistory: [], pins: {}, userDB: userDB });
+        this.props.global.setState({ isLoggedIn: false, user: null, quizHistory: [], pins: {}, userDB: userDB, tempJob: null });
     }
     handleRegisterClick() {
         const email = prompt("Email");
@@ -42,7 +42,7 @@ class LoginController extends Component {
         if(isLoggedIn) {
             show = <>
                 <LinkButton to='/my-profile' className='btn-header' onClick={() => this.props.global.setState({ tempJob: null })}>My Profile</LinkButton>
-                <Button onClick={this.handleLogoutClick} variant="secondary" className='btn-header' onClick={() => this.props.global.setState({ tempJob: null })}>Log Out</Button>
+                <Button onClick={this.handleLogoutClick} variant="secondary" className='btn-header'>Log Out</Button>
                 </>
         } else {
             show = <>

@@ -1,6 +1,11 @@
-import VisualDesignImg from '../../assets/graphics/visual-design.svg';
+import ContentStrategistImg from '../../assets/graphics/content-strategist.svg';
+import MotionDesignerImg from '../../assets/graphics/motion-designer.svg';
+import ProductDesignerImg from '../../assets/graphics/product-designer.svg';
+import UXDesignerImg from '../../assets/graphics/ux-designer.svg';
 import UXEngineerImg from '../../assets/graphics/ux-engineer.svg';
 import UXResearcherImg from '../../assets/graphics/ux-researcher.svg';
+import UXUnicornImg from '../../assets/graphics/ux-unicorn.svg';
+import VisualDesignImg from '../../assets/graphics/visual-design.svg';
 
 const q = (msg) => ({
     message: msg,
@@ -70,7 +75,7 @@ const jobs = {
          title: "Product Designer",
          weights: {10: 1, 11: 1, 12: 1, 13: 1, 14: 1},
          bio: "While they’re similar in nature to UX designers, the most distinguishing part is that they are specialized in paying special attention towards the product on top of user experience. (I.e. They pay greater attention to detail on how the product will function and benefit their end user).",
-         img: "",
+         img: ProductDesignerImg,
          bullets: ["They help with creation of product design goals and developing an interactive roadmap for it (I.e. what they needed to create the specific product, what needs to be done, specifics of their offerings and functions).", "Has to ensure that their product designs get implemented well."],
          responsibilities: ["Carries the same responsibilities as UX designer in terms of 5 design thinking processes.", "Creating and designing the product roadmap for the future plans", "Collaborating with development and marketing teams to ensure designs can be successfully implemented.", "Plan and run user tests and other design research to inform design decisions", "Analyze how new product ties in with market needs and consumer preferences"],
          requirements: ["Work experience as a Product Designer or similar role", "Background in designing for mobile-first platforms", "Experience in industrial design", "Experience with computer-aided design tools, 3D modeling software, and design programs such as Illustrator and Sketch.", "BSc/MSc in Product Design, Manufacturing Design Engineering or relevant field"],
@@ -83,7 +88,7 @@ const jobs = {
          title: "UX Designer",
          weights: {15: 1, 16: 1, 17: 1, 11: 0.75, 12: 1},
          bio: "Generalists who cover a little of everything in the entire design process. Their job is to understand their user’s needs, generate ideas to solve their problems, prototype designs and test them with users.",
-         img: "",
+         img: UXDesignerImg,
          bullets: ["Responsible for all 5 phase of design thinking process: Empathize, Define, Ideate, Prototype and Test.", "Their sub-roles also include: Interaction Designer, UI/UX Designer and Experience Designers."],
          responsibilities: ["Conducting user research through interviews, observations, and other research methods. (I.e. Learning from their users’ perspective).", "Selecting the most promising idea(s) based on their: feasibility, desirability, viability and among other criteria. ", "Analyzing Pain points from User’s perspective based on User Research.", "Prototyping designs from low fidelity (Sketch, etc.) to high-fidelity (Coding, etc.).", "Pushing design solutions out to the world that will benefit both users and company.", "Conduct usability testing to see if they need further improvements.", "Create user stories, personas, and storyboards.", "Collaborate with designers and developers to create user-friendly software."],
          requirements: ["Proven experience as a UX Designer, UI Designer or similar role", "Strong portfolio of design projects", "Background in project management, research, interaction design, and information architecture", "Knowledge of industry tools such as Sketch, Adobe InDesign, Illustrator, and InVision", "Proficient in design software and knowledge of HTML/CSS", "BSc in Design, computer science, engineering or a related field"],
@@ -96,7 +101,7 @@ const jobs = {
          title:"Content Strategist", 
          weights: {18: 1, 19: 1, 20: 1, 21: 1},
          bio: "They play the role of the most critical area that designers often overlook: words. As copy is the most important part of design, Copywriting is a specific role for that. As a Content Strategist, you will be mainly contributing to the Prototype process of design thinking, and you will be crucial in finalizing the product before launch (I.e. Ensuring that everything is properly checked and accurate to the design proposal).",
-         img: "",
+         img: ContentStrategistImg,
          bullets: ["Also known as UX writers or Copywriters.", "Provide a copy of the user interface so that people can navigate, use and troubleshoot the product easily."],
          responsibilities: ["Create effective title names and navigation menu items so that users can intuitively get to the page or screen they want.", "Define and maintain a vision for the product’s language that will be applied across the board.", "Writing error messages that are simple, effective and blame-free so that in an event of unfortunate error, users would feel assured than being annoyed.", "Creating effective email or newsletters to achieve product goals (After a user signs up for an account).", "Drive inbound traffic.", "Setting guidelines for the tone, style and voice of all brand content.", "Setting editorial strategy to make content consistent and compelling across all delivery streams analyzing content that is and isn’t working for the brand.", "Create specifications and appropriate content for brand’s designated audience.", "Strategize and improve content delivery and promotion."],
          requirements: ["At least five years of experience as a digital content manager, web writer or content editor", "Bachelor’s degree", "Common majors include English, journalism, communications, marketing creative writing, technical writing and information management"],
@@ -122,7 +127,7 @@ const jobs = {
          title: "UX Unicorn",
          weights: {25: 1, 1: 0.5, 26: 0.5, 22: 0.5, 4: 0.5, 15: 0.5, 18: 0.5, 14: 0.5, 9: 0.5, 27: 1},
          bio: "Although the name sounds new and mostly unfamiliar to people, don’t be confused! In the world of start-ups, “Unicorn” refers to those who not only possess the usual skill set for UX design but also have additional skills from other domains, as they can provide multiple values to business with a different skill set (I.e. covering other areas). They can be also considered as programmers who live code the product’s accessibility and functions (I.e. Browser).",
-         img: "",
+         img: UXUnicornImg,
          bullets: ["It typically refers to an UX designer who’s proficient in design AND frontend development.", "Part of the 5 design thinking processes, plus Frontend development.", "Considered to be rare as only people who are talented enough to do Frontend work are considered to be one.", "In charge of the entire design process, and translate their designs into live code.", "Shares similar traits to UX designer and UX engineer, thus is a combination of both. Therefore acts concurrently to the aforementioned two roles at once."],
          responsibilities: ["Carries the same responsibilities as UX designer.", "Develop live frontend prototypes, which can be used to test on users and gather realistic results for more data.", "Implementing Frontend code of design (I.e. Focusing on the browser outlook).", "User research usability testing, journey mapping and experience mapping tasks", "Data analytics and behavioral insights", "Interactive prototyping", "Development collaboration", "Visual design and creativity "],
          requirements: ["Coding and technical knowledge to design for feasibility"],
@@ -136,7 +141,7 @@ const jobs = {
          title: "Motion Designer",
          weights: {1: 1, 28: 1, 29: 1, 4: 1, 19: 1},
          bio: "While websites and applications are visual products, they aren’t static as there is constant movement and animation happening concurrently as the users scroll through pages and click around menus.",
-         img: "",
+         img: MotionDesignerImg,
          bullets: ["They are the movement and animation specialists in the UX field.", "All the subtle motion dynamics that take place when you use a digital product (the way a screen refreshes, the way menu options fade in and out, etc.) are the domain of motion designers."],
          responsibilities: ["Coordinating motion designs with overall UX strategy and research (I.e. Researching how people would like to see their product move and what they don’t like about them).", "Creating and testing moving product elements, motion graphics and animations."],
          requirements: ["TODO: MISSING DATA"],

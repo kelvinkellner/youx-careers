@@ -170,7 +170,7 @@ class Quiz extends Component {
                     {results.map((job, i) => (
                         <Card>
                             <Card.Header style={{fontWeight: "bold"}}>Match #{i+1}</Card.Header>
-                            <Image fluid src={job.img} alt={job.title + ' icon'} style={{width: "14em", height: "13.2em", marginLeft: "5.25em"}} />
+                            <Image fluid src={job.img} alt={job.title + ' icon'} style={{width: "14em", height: "13em", margin: "0.75em 0 0 5.25em"}} />
                             <Card.Body>
                                 <Card.Title>{job.title}</Card.Title>
                                 <Card.Text>{job.bio}</Card.Text>
