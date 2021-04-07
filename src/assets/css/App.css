@@ -88,6 +88,7 @@ code {
 
 .main {
   min-height: calc(100vh - 11.1em);
+  padding: 0;
 }
 
 #footer {
@@ -176,4 +177,8 @@ h6 {
 }
 .pinned-section .btn {
   width: 100%;
+}
+#login div,
+#register div {
+  justify-content: center;
 }

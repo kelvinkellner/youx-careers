@@ -401,8 +401,8 @@ class App extends Component {
           <Header global={this} />
           <Route exact path="/"><Home global={this}/></Route>
           <Route path="/careers"><Careers global={this}/></Route>
-          <Route path="/login" component={Login} />
-          <Route path="/register" component={Register} />
+          <Route path="/login"><Login global={this}/></Route>
+          <Route path="/register"><Register global={this}/></Route>
           <Route path="/my-profile"><MyProfile global={this}/></Route>
           <Footer />
         </div>

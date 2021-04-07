@@ -8,7 +8,6 @@ class LoginController extends Component {
     constructor(props) {
         super(props);
         this.handleLogoutClick = this.handleLogoutClick.bind(this);
-        this.handleLoginClick = this.handleLoginClick.bind(this);
         this.handleRegisterClick = this.handleRegisterClick.bind(this);
     }
 
@@ -21,21 +20,6 @@ class LoginController extends Component {
         const userDB = this.props.global.state.userDB;
         userDB[user.email] = user;
         this.props.global.setState({ isLoggedIn: false, user: null, quizHistory: [], pins: {}, userDB: userDB });
-    }
-    handleLoginClick() {
-        const email = prompt("Email");
-        const password = prompt("Password");
-        if(email in this.props.global.state.userDB) {
-            if(this.props.global.state.userDB[email].password === password) {
-                const user = this.props.global.state.userDB[email];
-                this.props.global.setState({ isLoggedIn: true, user: user, pins: user.pins, quizHistory: user.quizHistory });
-                alert('You have logged in successfully!');
-            } else {
-                alert("Incorrect password.");
-            }
-        } else {
-            alert("Sorry, account not found.");
-        }
     }
     handleRegisterClick() {
         const email = prompt("Email");
@@ -62,8 +46,8 @@ class LoginController extends Component {
                 </>
         } else {
             show = <>
-                <Button onClick={this.handleLoginClick} variant="secondary" className='btn-header'>Log In</Button>
-                <Button onClick={this.handleRegisterClick} className='btn-header'>Sign Up</Button>
+                <LinkButton to='/login' variant="secondary" className='btn-header'>Log In</LinkButton>
+                <LinkButton to='/register' className='btn-header'>Sign Up</LinkButton>
                 </>
         }
         return(
