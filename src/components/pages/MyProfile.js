@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Link, Redirect, withRouter } from 'react-router-dom';
+import { Pencil } from 'react-bootstrap-icons';
 
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
@@ -26,13 +28,28 @@ class MyProfile extends Component {
     handleCareerClicked(job) {
         this.props.global.setState({ tempJob: job });
     }
+    handleEditName(i) {
+        const quizHistory = this.props.global.state.quizHistory;
+        const newTitle = prompt("Enter a new title for this quiz record:");
+        if(newTitle !== null && newTitle !== '') {
+            quizHistory[i].title = newTitle;
+            this.props.global.setState({ quizHistory: quizHistory });
+        }
+    }
+    refreshCareerSelected() {
+        this.props.global.setState({ tempJob: null });
+    }
     render() {
+        if(window.location.pathname === '/careers') {
+            this.props.global.setState({ tempJob: null });
+            this.setState()
+        }
         const pins = this.props.global.state.pins;
         const quizHistory = this.props.global.state.quizHistory;
-        return(
+        const show = this.props.global.state.isLoggedIn ? (
             <Container id='my-profile' className='main' style={{paddingLeft: "2em", paddingTop: "2em"}}>
                 <Row>
-                    <h2>Hello, {this.props.global.state.isLoggedIn ? this.props.global.state.user.email : "Guest"}!</h2>
+                    <h2>Hello, {this.props.global.state.isLoggedIn ? this.props.global.state.user.displayName? this.props.global.state.user.displayName : this.props.global.state.user.email : "Guest"}!</h2>
                 </Row>
                 <Row style={{width: "80%", marginTop: "2em"}}>
                     <Col style={{padding: 0}}>
@@ -55,7 +72,7 @@ class MyProfile extends Component {
                         ) : (
                             <Row className='pinned-section'>
                                 <Col xs={12}>
-                                    <p>No pinned careers. You should pin one!</p>
+                                    <p>No pinned careers.</p>
                                 </Col>
                             </Row>
                         )}
@@ -65,13 +82,16 @@ class MyProfile extends Component {
                     <Col style={{padding: 0}}>
                         <h4>Past Quiz Results</h4>
                             { quizHistory.length > 0 ? (
-                                quizHistory.map(quiz => (
+                                quizHistory.map((quiz, i) => (
                                     <Row className='pinned-section' style={{marginBottom: "0.2em"}}>
                                         <Col xs={2}>
                                             <p>{quiz.date}</p>
                                         </Col>
                                         <Col xs={3}>
-                                            <p>{quiz.title}</p>
+                                            <LinkButton as={Link} onClick={() => this.handleEditName(i)} className='edit-text'>
+                                                <p>{quiz.title}</p>
+                                                <Pencil className='icon' size={12}/>
+                                            </LinkButton>
                                         </Col>
                                         <Col fluid />
                                         <Col xs={2} style={{padding: 0, margin: "0 0.4em"}}>
@@ -82,7 +102,7 @@ class MyProfile extends Component {
                             ) : (
                                 <Row className='pinned-section'>
                                     <Col xs={12}>
-                                        <p>No past quiz results. Take the quiz!</p>
+                                        <p>No past quiz results.</p>
                                     </Col>
                                 </Row>
                             ) }
@@ -92,8 +112,11 @@ class MyProfile extends Component {
                     <p style={{marginTop: "3em"}}>Please note: this prototype does not use a database, all information is stored temporarily and will be lost after refreshing.</p>
                 </Row>
             </Container>
-        );
+        ) : <Redirect to="/"/>;
+        return(<>
+            {show}
+        </>);
     };
 }
 
-export default MyProfile;
+export default withRouter(MyProfile);

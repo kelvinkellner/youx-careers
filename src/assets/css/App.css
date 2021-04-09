@@ -34,13 +34,17 @@ code {
   background-color: var(--color-light);
 }
 
-#header {
+div#header {
   height: 6em;
   padding: 1em 0;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: var(--color-light);
 }
 
 #quiz {
-  height: 35em;
+  min-height: 34em;
   background-color: white;
   border: 2px solid var(--color-primary);
   border-radius: 1em;
@@ -76,6 +80,7 @@ code {
   float: right;
   align-items: flex-end;
   justify-content: flex-end;
+  width: 1rem;
 }
 .nav-header {
   margin-bottom: 0.5em;
@@ -84,8 +89,10 @@ code {
 .nav-header a {
   margin-left: 1em;
 }
-#explore-careers {
+.nav-header-text-style {
   justify-content: flex-start;
+  max-width: max-content;
+  margin-right: 1.2em;
 }
 
 .main {
@@ -127,12 +134,12 @@ code {
   border-color: var(--color-primary-dark);
   color: var(--color-dark-dark);
 }
-.card-text {
+/* .card-text {
   display: -webkit-box;
   overflow: hidden;
   -webkit-line-clamp: 6;
   -webkit-box-orient: vertical;
-}
+} */
 
 .hint a {
   color: var(--color-dark-light);
@@ -183,4 +190,46 @@ h6 {
 #login div,
 #register div {
   justify-content: center;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.v-scroll::-webkit-scrollbar {
+  display: none;
+}
+/* Hide scrollbar for IE, Edge and Firefox */
+.v-scroll {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.password-no-match {
+  filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.6));
+  border: red 1px solid;
+}
+
+.icon {
+  color: lightslategray;
+  margin: 8px;
+}
+
+.edit-text {
+  background-color: rgba(0, 0, 0, 0);
+  color: var(--color-dark-dark);
+  border: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: max-content;
+  min-width: 400px;
+  text-decoration: none;
+}
+.edit-text:hover {
+  background-color: rgba(0, 0, 0, 0);
+  color: var(--color-dark);
+  border: 0;
+  text-decoration: underline;
+}
+.edit-text:focus {
+  background-color: rgba(0, 0, 0, 0);
+  color: var(--color-dark-dark);
 }

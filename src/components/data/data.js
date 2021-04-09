@@ -50,8 +50,8 @@ const jobs = {
          weights: {1: 1, 2: 1, 3: 1, 4: 1, 5: 1},
          bio: "Unlike UX or Product designers, they are more towards specialists than generalists. They take on the job of creating pixel-perfect prototypes that align or remain consistent with the rest of the product. Their main role begins when the production development reaches the Prototyping phase.",
          img: VisualDesignImg,
-         bullets: ["Sub roles include UI (User Interface) designer and Graphic designers.", "Focuses on the visual aspect of the product design (I.e. How they look, what they’re going to look like for the users, how will they appeal to the users via outward appearance." ],
-         responsibilities: ["Create or maintain a library of icons, colors and fonts that would be used throughout the product.", "Transforming UX design goals such as signing up for an account into a set of easy to use and visually appealing designs items and much more.", "Providing a pleasant and visually attractive user interface and so on to enrich the user’s overall experience.", "Collaborate with teams to define user interface requirements.", "Present rough drafts to product managers and/or key stakeholders.", "Develop prototypes and models to use in products."],
+         bullets: ["Sub roles include UI (User Interface) designer and Graphic designers.", "Focuses on the visual aspect of the product design (I.e. How they look, what they're going to look like for the users, how will they appeal to the users via outward appearance." ],
+         responsibilities: ["Create or maintain a library of icons, colors and fonts that would be used throughout the product.", "Transforming UX design goals such as signing up for an account into a set of easy to use and visually appealing designs items and much more.", "Providing a pleasant and visually attractive user interface and so on to enrich the user's overall experience.", "Collaborate with teams to define user interface requirements.", "Present rough drafts to product managers and/or key stakeholders.", "Develop prototypes and models to use in products."],
          requirements: ["Portfolio of related works (logos, animations, graphics, etc.)", "Proven work experience as a Visual Design, UI Designer or similar role", "Hands-on experience with image editing and digital sketch software", "BSc degree in Design, Visual Arts or relevant qualifications"],
          willenjoyif: ["You enjoy designing and focusing on the artistic aspect of UX design, using colors, typography, use of space and other graphic design elements/concepts.", "Enjoy creating a visual, pixel-perfect mock-up of a product.", "Enjoy applying consistent, meaningful and pleasant visuals across a wide range of user flows and contexts."],
          tasks: ["Pixel-Perfect prototypes", "Interactive prototypes", "Visual style guides", "Icon libraries", "Design specifications", "Branding guidelines or materials to supplement the product (I.e. Creating a layout of what they would like on the finished product)."],
@@ -61,11 +61,11 @@ const jobs = {
    2: {
          title: "UX Researcher",
          weights: {5: 1, 6: 1, 7: 1, 8:1, 9: 1, 26: 1, 25: 1},
-         bio: "Just like Product designers, they’re specialists in terms of their skill set, as they are focused on utilizing qualitative and quantitative research methods to provide information about users to other designers to inform them about the design they’re working towards and how it matches up to the user’s needs, etc. They are commonly more known as user researchers or simply researchers.",
+         bio: "Just like Product designers, they're specialists in terms of their skill set, as they are focused on utilizing qualitative and quantitative research methods to provide information about users to other designers to inform them about the design they're working towards and how it matches up to the user's needs, etc. They are commonly more known as user researchers or simply researchers.",
          img: UXResearcherImg,
-         bullets: ["They focus on three of the five design thinking processes: Emphasize, Define and Test.", "As they’re part of and involved in the first design process, they focus on emphasizing with the users to gain holistic understanding of their needs and help them define the problems they have, which calls for specific designs  that are needed to solve them.", "They also are very much involved in the testing process to help validate and improve designs to ensure they closely follow the information that they have gathered for better accuracy."],
+         bullets: ["They focus on three of the five design thinking processes: Emphasize, Define and Test.", "As they're part of and involved in the first design process, they focus on emphasizing with the users to gain holistic understanding of their needs and help them define the problems they have, which calls for specific designs  that are needed to solve them.", "They also are very much involved in the testing process to help validate and improve designs to ensure they closely follow the information that they have gathered for better accuracy."],
          responsibilities: ["Gain a rich and full understanding of the users through Qualitative research methods (I.e. Interviews, User observation and Field studies).", "Utilizing Quantitative research to piece together significant or accurate specific traits of the users through Card sorting and Survey methods.", "Making use of research information gathered to synthesize their key points and create design proposals based on them.", "Advocate for users needs and perspectives towards internal organization such as stakeholders, designers, developers, marketers and executives."],
-         requirements: ["TODO: MISSING DATA"],
+         requirements: ["Has In-depth knowledge of UI design principles to emphasize with the user's perspective.", "Has understanding of how to effectively utilize Qualitative and Quantitative research methods in gathering research data.", "Being able to work collaboratively with the team (This is a team effort).", "Critical thinking and problem solving skills are essential in understanding what the users need and how designers should solve those problems.", "Have efficient intrapersonal, communication and time management skills to manage from small to large volumes of data, while working with others."],
          willenjoyif: ["You have strong interest in Human psychology and the study of people (I.e. behaviors, traits, characteristics, etc.)", "You often step in the shoes of others to emphasize with them in their perspectives and problems. (I.e. Understanding other people's concerns).", "You are versed in the field of psychology and know the ins and outs of it.", "Love generating and analyzing research data."],
          tasks: ["User Research reports (Qualitative and Quantitative research)", "Utilizing User Research methods to gather data about the users", "Creating User personas, Journey maps, Stories, Usability report, User testing reports and etc.", "Heuristic evaluation reports"],
          skills: ["Knowledge of marketing, cognitive science, psychology, economics or information science, and a solid understanding of user experience design", "User-centric design practices", "Excellent communication skills and empathy of user", "Ability to collaborate with different teams", "Knowledge of industry tools such as presentation programs, UX design programs, and analytics tracking tools"],
@@ -74,7 +74,7 @@ const jobs = {
    3: {
          title: "Product Designer",
          weights: {10: 1, 11: 1, 12: 1, 13: 1, 14: 1},
-         bio: "While they’re similar in nature to UX designers, the most distinguishing part is that they are specialized in paying special attention towards the product on top of user experience. (I.e. They pay greater attention to detail on how the product will function and benefit their end user).",
+         bio: "While they're similar in nature to UX designers, the most distinguishing part is that they are specialized in paying special attention towards the product on top of user experience. (I.e. They pay greater attention to detail on how the product will function and benefit their end user).",
          img: ProductDesignerImg,
          bullets: ["They help with creation of product design goals and developing an interactive roadmap for it (I.e. what they needed to create the specific product, what needs to be done, specifics of their offerings and functions).", "Has to ensure that their product designs get implemented well."],
          responsibilities: ["Carries the same responsibilities as UX designer in terms of 5 design thinking processes.", "Creating and designing the product roadmap for the future plans", "Collaborating with development and marketing teams to ensure designs can be successfully implemented.", "Plan and run user tests and other design research to inform design decisions", "Analyze how new product ties in with market needs and consumer preferences"],
@@ -87,10 +87,10 @@ const jobs = {
    4: {
          title: "UX Designer",
          weights: {15: 1, 16: 1, 17: 1, 11: 0.75, 12: 1},
-         bio: "Generalists who cover a little of everything in the entire design process. Their job is to understand their user’s needs, generate ideas to solve their problems, prototype designs and test them with users.",
+         bio: "Generalists who cover a little of everything in the entire design process. Their job is to understand their user's needs, generate ideas to solve their problems, prototype designs and test them with users.",
          img: UXDesignerImg,
          bullets: ["Responsible for all 5 phase of design thinking process: Empathize, Define, Ideate, Prototype and Test.", "Their sub-roles also include: Interaction Designer, UI/UX Designer and Experience Designers."],
-         responsibilities: ["Conducting user research through interviews, observations, and other research methods. (I.e. Learning from their users’ perspective).", "Selecting the most promising idea(s) based on their: feasibility, desirability, viability and among other criteria. ", "Analyzing Pain points from User’s perspective based on User Research.", "Prototyping designs from low fidelity (Sketch, etc.) to high-fidelity (Coding, etc.).", "Pushing design solutions out to the world that will benefit both users and company.", "Conduct usability testing to see if they need further improvements.", "Create user stories, personas, and storyboards.", "Collaborate with designers and developers to create user-friendly software."],
+         responsibilities: ["Conducting user research through interviews, observations, and other research methods. (I.e. Learning from their users' perspective).", "Selecting the most promising idea(s) based on their: feasibility, desirability, viability and among other criteria.", "Analyzing Pain points from User's perspective based on User Research.", "Prototyping designs from low fidelity (Sketch, etc.) to high-fidelity (Coding, etc.).", "Pushing design solutions out to the world that will benefit both users and company.", "Conduct usability testing to see if they need further improvements.", "Create user stories, personas, and storyboards.", "Collaborate with designers and developers to create user-friendly software."],
          requirements: ["Proven experience as a UX Designer, UI Designer or similar role", "Strong portfolio of design projects", "Background in project management, research, interaction design, and information architecture", "Knowledge of industry tools such as Sketch, Adobe InDesign, Illustrator, and InVision", "Proficient in design software and knowledge of HTML/CSS", "BSc in Design, computer science, engineering or a related field"],
          willenjoyif: ["Love to create intuitive and useful solutions to solve the problems users face in their lives.", "Enjoy taking charge of the entire design process, from the initial stage of understanding users to the final stage of producing a high-fidelity prototype."],
          tasks: ["User Research", "Wireframing", "Low to High fidelity", "User testing", "Heuristic evaluation reports", "User journey map", "User persona"],
@@ -103,10 +103,10 @@ const jobs = {
          bio: "They play the role of the most critical area that designers often overlook: words. As copy is the most important part of design, Copywriting is a specific role for that. As a Content Strategist, you will be mainly contributing to the Prototype process of design thinking, and you will be crucial in finalizing the product before launch (I.e. Ensuring that everything is properly checked and accurate to the design proposal).",
          img: ContentStrategistImg,
          bullets: ["Also known as UX writers or Copywriters.", "Provide a copy of the user interface so that people can navigate, use and troubleshoot the product easily."],
-         responsibilities: ["Create effective title names and navigation menu items so that users can intuitively get to the page or screen they want.", "Define and maintain a vision for the product’s language that will be applied across the board.", "Writing error messages that are simple, effective and blame-free so that in an event of unfortunate error, users would feel assured than being annoyed.", "Creating effective email or newsletters to achieve product goals (After a user signs up for an account).", "Drive inbound traffic.", "Setting guidelines for the tone, style and voice of all brand content.", "Setting editorial strategy to make content consistent and compelling across all delivery streams analyzing content that is and isn’t working for the brand.", "Create specifications and appropriate content for brand’s designated audience.", "Strategize and improve content delivery and promotion."],
-         requirements: ["At least five years of experience as a digital content manager, web writer or content editor", "Bachelor’s degree", "Common majors include English, journalism, communications, marketing creative writing, technical writing and information management"],
+         responsibilities: ["Create effective title names and navigation menu items so that users can intuitively get to the page or screen they want.", "Define and maintain a vision for the product's language that will be applied across the board.", "Writing error messages that are simple, effective and blame-free so that in an event of unfortunate error, users would feel assured than being annoyed.", "Creating effective email or newsletters to achieve product goals (After a user signs up for an account).", "Drive inbound traffic.", "Setting guidelines for the tone, style and voice of all brand content.", "Setting editorial strategy to make content consistent and compelling across all delivery streams analyzing content that is and isn't working for the brand.", "Create specifications and appropriate content for brand's designated audience.", "Strategize and improve content delivery and promotion."],
+         requirements: ["At least five years of experience as a digital content manager, web writer or content editor", "Bachelor's degree", "Common majors include English, journalism, communications, marketing creative writing, technical writing and information management"],
          willenjoyif: ["You enjoy helping others to achieve their goals with the least amount of cognitive load (I.e. Simplifying things). And should be attracted to empathizing with users and understanding their goals.", "Passionate in achieving product goals and business goals.", "Have solid knowledge of UX design and understanding in writing.", "Enjoy using empathy, data, business goals and logic to inform your writing."],
-         tasks: ["Copy, which you will integrate it into the product itself.", "Editorial guidelines or product language guidelines that will set the tone or content style for the product.", ""],
+         tasks: ["Copy, which you will integrate it into the product itself.", "Editorial guidelines or product language guidelines that will set the tone or content style for the product."],
          skills: ["Solid copywriting skills", "Content presentation and Content delivery", "Campaign experience", "Multitasking and organization", "Communication", "Have an analytical mind", "Attention to detail"],
          salary: "54,029"
       },
@@ -115,10 +115,10 @@ const jobs = {
          weights: {18: 1, 22: 1, 23: 1, 24: 1},
          bio: "UX engineer is a front-end engineer who facilitates effective design collaboration between the design and engineering teams. They are also responsible for producing prototypes that require coding. Much like a UX designer, their job is to turn a complex problem into a more intuitive solution.",
          img: UXEngineerImg,
-         bullets: ["TODO: MISSING DATA. Consider making optional?"],
-         responsibilities: ["TODO: MISSING DATA, make separate from tasks"],
+         bullets: ["Mainly responsible for producing and creating prototypes that require coding and cannot be done using design software.", "Their front-end development skills are valuable and informative towards the final development.","UX Engineers serve as both a designer and a developer who works closely with their design team, acting as a link between designing and engineering."],
+         responsibilities: ["User research", "Human computer interaction", "Prototyping", "Advanced visual design (mock-ups)", "Usability testing and User journey analysis"],
          requirements: ["A portfolio that demonstrates all skills acquired and specific areas of interests within the field", "HTML, CSS, and JavaScript experience", "Experience with responsive design programming"],
-         willenjoyif: ["TODO: MISSING DATA"],
+         willenjoyif: ["You enjoy challenging the iterative development and coding process of the software building as a Frontend developer.", "You find enjoyment in understanding and transforming complex data and create whatever comes in your mind, then turn it into live code to showcase what you envisioned in your ideas, for others to see and use.", "You enjoy juggling between the designing and coding of the overall development process and overseeing them, including the final development."],
          tasks: ["User research", "Human computer interaction", "Prototyping", "Advanced visual design (mock-ups)", "Usability testing and User journey analysis"],
          skills: ["Able to communicate your ideas, thoughts, or concerns with others.", "Ability to code, test/debug, and manage version control.", "UI design skills such as Sketch, Adobe Creative Suite, and Figma."],
          salary: "95,934"
@@ -126,9 +126,9 @@ const jobs = {
    7: {
          title: "UX Unicorn",
          weights: {25: 1, 1: 0.5, 26: 0.5, 22: 0.5, 4: 0.5, 15: 0.5, 18: 0.5, 14: 0.5, 9: 0.5, 27: 1},
-         bio: "Although the name sounds new and mostly unfamiliar to people, don’t be confused! In the world of start-ups, “Unicorn” refers to those who not only possess the usual skill set for UX design but also have additional skills from other domains, as they can provide multiple values to business with a different skill set (I.e. covering other areas). They can be also considered as programmers who live code the product’s accessibility and functions (I.e. Browser).",
+         bio: "Although the name sounds new and mostly unfamiliar to people, don't be confused! In the world of start-ups, “Unicorn” refers to those who not only possess the usual skill set for UX design but also have additional skills from other domains, as they can provide multiple values to business with a different skill set (I.e. covering other areas). They can be also considered as programmers who live code the product's accessibility and functions (I.e. Browser).",
          img: UXUnicornImg,
-         bullets: ["It typically refers to an UX designer who’s proficient in design AND frontend development.", "Part of the 5 design thinking processes, plus Frontend development.", "Considered to be rare as only people who are talented enough to do Frontend work are considered to be one.", "In charge of the entire design process, and translate their designs into live code.", "Shares similar traits to UX designer and UX engineer, thus is a combination of both. Therefore acts concurrently to the aforementioned two roles at once."],
+         bullets: ["It typically refers to an UX designer who's proficient in design AND frontend development.", "Part of the 5 design thinking processes, plus Frontend development.", "Considered to be rare as only people who are talented enough to do Frontend work are considered to be one.", "In charge of the entire design process, and translate their designs into live code.", "Shares similar traits to UX designer and UX engineer, thus is a combination of both. Therefore acts concurrently to the aforementioned two roles at once."],
          responsibilities: ["Carries the same responsibilities as UX designer.", "Develop live frontend prototypes, which can be used to test on users and gather realistic results for more data.", "Implementing Frontend code of design (I.e. Focusing on the browser outlook).", "User research usability testing, journey mapping and experience mapping tasks", "Data analytics and behavioral insights", "Interactive prototyping", "Development collaboration", "Visual design and creativity "],
          requirements: ["Coding and technical knowledge to design for feasibility"],
          willenjoyif: ["While it is considered to be the toughest and most complicated role, it can be achieved if you can juggle between UX design and Frontend coding, and carry strong knowledge for both roles. It is a viable option, but the least pursued role."],
@@ -140,14 +140,14 @@ const jobs = {
    9: {
          title: "Motion Designer",
          weights: {1: 1, 28: 1, 29: 1, 4: 1, 19: 1},
-         bio: "While websites and applications are visual products, they aren’t static as there is constant movement and animation happening concurrently as the users scroll through pages and click around menus.",
+         bio: "While websites and applications are visual products, they aren't static as there is constant movement and animation happening concurrently as the users scroll through pages and click around menus.",
          img: MotionDesignerImg,
          bullets: ["They are the movement and animation specialists in the UX field.", "All the subtle motion dynamics that take place when you use a digital product (the way a screen refreshes, the way menu options fade in and out, etc.) are the domain of motion designers."],
-         responsibilities: ["Coordinating motion designs with overall UX strategy and research (I.e. Researching how people would like to see their product move and what they don’t like about them).", "Creating and testing moving product elements, motion graphics and animations."],
-         requirements: ["TODO: MISSING DATA"],
+         responsibilities: ["Coordinating motion designs with overall UX strategy and research (I.e. Researching how people would like to see their product move and what they don't like about them).", "Creating and testing moving product elements, motion graphics and animations."],
+         requirements: ["At least five years of experience as a digital content manager, web writer or content editor", "Bachelor's degree", "Common majors include English, journalism, communications, marketing creative writing, technical writing and information management"],
          willenjoyif: ["You enjoy creating fluid movements for navigation and so on to enrich overall user experience with the product.", "Create and emphasize with the users on how they perceive the motions on their product."],
          tasks: ["Creating Motion prototypes", "Apply the motions of the product (I.e. how they should look and work for the users) to achieve overall user experience and satisfaction"],
-         skills: ["TODO: MISSING DATA"],
+         skills: ["Solid copywriting skills", "Content presentation and Content delivery", "Campaign experience", "Multitasking and organization", "Communication", "Have an analytical mind", "Attention to detail"],
          salary: "63,373"
       },
 }
@@ -156,6 +156,7 @@ let defaultUsers = {
    "friendlyuser13@gmail.com": {
    email: "friendlyuser13@gmail.com",
    password: "hunter2",
+   displayName: "Friendly User",
    pins: {
       1: {
          "title": "Visual Designer"
@@ -218,12 +219,12 @@ let defaultUsers = {
                "img": "/static/media/visual-design.d5a013d4.svg",
                "bullets": [
                   "Sub roles include UI (User Interface) designer and Graphic designers.",
-                  "Focuses on the visual aspect of the product design (I.e. How they look, what they’re going to look like for the users, how will they appeal to the users via outward appearance."
+                  "Focuses on the visual aspect of the product design (I.e. How they look, what they're going to look like for the users, how will they appeal to the users via outward appearance."
                ],
                "responsibilities": [
                   "Create or maintain a library of icons, colors and fonts that would be used throughout the product.",
                   "Transforming UX design goals such as signing up for an account into a set of easy to use and visually appealing designs items and much more.",
-                  "Providing a pleasant and visually attractive user interface and so on to enrich the user’s overall experience.",
+                  "Providing a pleasant and visually attractive user interface and so on to enrich the user's overall experience.",
                   "Collaborate with teams to define user interface requirements.",
                   "Present rough drafts to product managers and/or key stakeholders.",
                   "Develop prototypes and models to use in products."
@@ -264,18 +265,20 @@ let defaultUsers = {
                   "28": 1,
                   "29": 1
                },
-               "bio": "While websites and applications are visual products, they aren’t static as there is constant movement and animation happening concurrently as the users scroll through pages and click around menus.",
+               "bio": "While websites and applications are visual products, they aren't static as there is constant movement and animation happening concurrently as the users scroll through pages and click around menus.",
                "img": "/static/media/motion-designer.ccdef284.svg",
                "bullets": [
                   "They are the movement and animation specialists in the UX field.",
                   "All the subtle motion dynamics that take place when you use a digital product (the way a screen refreshes, the way menu options fade in and out, etc.) are the domain of motion designers."
                ],
                "responsibilities": [
-                  "Coordinating motion designs with overall UX strategy and research (I.e. Researching how people would like to see their product move and what they don’t like about them).",
+                  "Coordinating motion designs with overall UX strategy and research (I.e. Researching how people would like to see their product move and what they don't like about them).",
                   "Creating and testing moving product elements, motion graphics and animations."
                ],
                "requirements": [
-                  "TODO: MISSING DATA"
+                  "At least five years of experience as a digital content manager, web writer or content editor",
+                  "Bachelor's degree",
+                  "Common majors include English, journalism, communications, marketing creative writing, technical writing and information management",
                ],
                "willenjoyif": [
                   "You enjoy creating fluid movements for navigation and so on to enrich overall user experience with the product.",
@@ -286,7 +289,13 @@ let defaultUsers = {
                   "Apply the motions of the product (I.e. how they should look and work for the users) to achieve overall user experience and satisfaction"
                ],
                "skills": [
-                  "TODO: MISSING DATA"
+                  "Solid copywriting skills",
+                  "Content presentation and Content delivery",
+                  "Campaign experience",
+                  "Multitasking and organization",
+                  "Communication",
+                  "Have an analytical mind",
+                  "Attention to detail"
                ],
                "salary": "63,373"
             },
@@ -299,7 +308,7 @@ let defaultUsers = {
                   "13": 1,
                   "14": 1
                },
-               "bio": "While they’re similar in nature to UX designers, the most distinguishing part is that they are specialized in paying special attention towards the product on top of user experience. (I.e. They pay greater attention to detail on how the product will function and benefit their end user).",
+               "bio": "While they're similar in nature to UX designers, the most distinguishing part is that they are specialized in paying special attention towards the product on top of user experience. (I.e. They pay greater attention to detail on how the product will function and benefit their end user).",
                "img": "/static/media/product-designer.3ff0356e.svg",
                "bullets": [
                   "They help with creation of product design goals and developing an interactive roadmap for it (I.e. what they needed to create the specific product, what needs to be done, specifics of their offerings and functions).",

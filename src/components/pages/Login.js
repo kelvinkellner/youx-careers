@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
-
-import LinkButton from '../LinkButton';
 
 class Login extends Component {
     constructor(props) {
@@ -37,7 +36,7 @@ class Login extends Component {
     render() {
         const isLoggedIn = this.props.global.state.isLoggedIn;
         const show = !isLoggedIn ? (
-            <Container id='login' className='main' style={{minHeight: "30.8em"}}>
+            <Container id='login' className='main' style={{minHeight: "65.8vh"}}>
                 <Row style={{marginTop: "5em", marginBottom: "1em"}}>
                     <h2>Log In</h2>
                 </Row>
@@ -55,20 +54,12 @@ class Login extends Component {
                         Note: This prototype does not store any information, refreshing will reset all data.
                         </Form.Text>
                         <Button variant="primary" type="submit" style={{width: "18.4em", margin: "1em 0 -5em 5em"}} onClick={(e) => this.handleClick(e)}>
-                            Submit
+                            Log In
                         </Button>
                     </Form>
                 </Row>
             </Container>
-        ) : (
-            <Container id='register' className='main' style={{minHeight: "23.8em"}}>
-                <Row style={{margin: "12em 0 2em 0"}}>
-                    <h1>You are now logged in!</h1>
-                </Row>
-                <Row>
-                    <LinkButton to='/my-profile'>My Profile</LinkButton>
-                </Row>
-            </Container>);
+        ) : <Redirect to="/my-profile"/>;
         return (<>
            {show} 
         </>);

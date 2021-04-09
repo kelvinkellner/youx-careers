@@ -65,7 +65,7 @@ class Quiz extends Component {
                 const history = this.props.global.state.quizHistory;
                 const current = new Date();
                 const date = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
-                const title = prompt("What would you like to title this quiz attempt?");
+                const title = prompt("Enter a title for this quiz record:");
                 history.unshift({
                     date: date,
                     title: title === "" ? "[User's Quiz Title]" : title,
@@ -146,6 +146,19 @@ class Quiz extends Component {
     handleCareerClicked(job) {
         this.props.global.setState({ tempJob: job });
     }
+    handlePinPressed(job, key) {
+        if(this.props.global.state.isLoggedIn) {
+            const pins = this.props.global.state.pins;
+            if(!(key in pins)) {
+                pins[key] = { title: job.title };
+            } else {
+                delete pins[key];
+            }
+            this.props.global.setState({ pins: pins });
+        } else {
+            alert("Please log in or sign up to save pins!");
+        }
+    }
     render() {
         const q = this.state.now > 0 ? this.state.questions[this.state.ids[this.state.now-1]] : null;
         let results = this.state.results;
@@ -212,13 +225,6 @@ class Quiz extends Component {
             <Row>   
                 <h3 style={{margin: "0.6em 0 1.2em 0"}}>Results</h3>
             </Row>
-            {/*<Row style={{padding: 0, height: "12em", width: "32em"}}>
-                <Col style={{padding: 0, height: "12em", width: "32em"}}>
-                    <p>1. {results[0].title}</p>
-                    <p>2. {results[1].title}</p>
-                    <p>3. {results[2].title}</p>
-                </Col>
-            </Row>*/}
             <Row style={{width: "90%"}}>
                 <CardDeck style={{width: "100%"}}>
                     {results.map((job, i) => (
@@ -246,7 +252,7 @@ class Quiz extends Component {
             <Row>
                 <Link to="/careers"><h5>Explore all careers</h5></Link>
             </Row>
-            <Row style={{margin: "4em"}}>
+            <Row style={{marginTop: "4em"}}>
                 <h3>Take the quiz again:</h3>
                 <Button style={{fontSize: "1.1rem", marginLeft: "0.4em", marginBottom: "3em"}} onClick={this.newQuiz}><h5>Restart</h5></Button>
             </Row>

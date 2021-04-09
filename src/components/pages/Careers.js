@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Link from 'react-router-dom/Link';
+import { Link, withRouter } from 'react-router-dom';
 
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
@@ -25,33 +25,61 @@ class Careers extends Component {
             const pins = this.props.global.state.pins;
             if(!(key in pins)) {
                 pins[key] = { title: job.title };
-                this.props.global.setState({ pins: pins });
-                alert(job.title + ' successfully pinned!');
             } else {
-                alert("Already pinned!");
+                delete pins[key];
             }
+            this.props.global.setState({ pins: pins });
         } else {
             alert("Please log in or sign up to save pins!");
         }
     }
-    render() {
-        const kList = Object.keys(jobs);
-        const showSpecificCareer = this.props.global.state.tempJob === null ? false : true;
+    refreshCareerSelected() {
         const job = this.props.global.state.tempJob;
+        const kList = Object.keys(jobs);
+        if(window.location.pathname === '/careers' && job !== null) {
+            console.log("A");
+            this.props.global.setState({ tempJob: null, tempKey: null });
+        } else if(window.location.pathname !== '/careers' && job === null) {
+            console.log("B");
+            const url = window.location.pathname.replace('/careers/', '').replace('+', ' ').replace('-', ' ');
+            console.log("URL:", url);
+            let found = false, i=0;
+            while(!found && i<kList.length) {
+                if (jobs[kList[i]].title.toLowerCase() === url) {
+                    this.props.global.setState({ tempJob: jobs[kList[i]], tempKey: i });
+                    found = true;
+                } else
+                    i++;
+            }
+        } else {
+            console.log("NO", window.location.pathname === '/careers', job !== null, window.location.pathname, job);
+        }
+    }
+    componentWillUnmount() {
+        this.refreshCareerSelected();
+    }
+    render() {
+        const job = this.props.global.state.tempJob;
+        const kList = Object.keys(jobs);
+        this.refreshCareerSelected(kList, job);
+        const showSpecificCareer = this.props.global.state.tempJob === null ? false : true;
         const key = this.props.global.state.tempKey;
+        const pins = this.props.global.state.pins;
         const show = showSpecificCareer ? (
-        <Container id='specific-career' className='main'>
-            <Row style={{height: "100%"}}>
-                <Col xs={12} lg={2} style={{paddingTop: "0.8em"}}>
-                    <LinkButton to='/careers' variant="secondary" onClick={() => { this.setState({showSpecificCareer: false, job: null}); this.props.global.setState({ tempJob: null });}} style={{width: "100%"}}>All Careers</LinkButton>
-                    <Button as={Link} to="/" variant="secondary" style={{width: "100%", marginTop: "1.2em"}}>Retake Quiz</Button>
-                    <Button as={Link} to="/my-profile" variant="secondary" style={{width: "100%", marginTop: "1.2em"}}>My Pins</Button>
-                    <Button style={{width: "100%", height: "4em", marginTop: "1.2em"}} onClick={() => this.handlePinPressed(job, key) }>Pin to Profile</Button>
+        <Container id='specific-career' className='main' style={{marginBottom: 0}}>
+            <Row>
+                <Col xs={12} lg={2} style={{paddingTop: "0.8em", maxHeight: "72vh"}}>
+                    <div style={{position: "sticky", top: "6.8em"}}>
+                        <LinkButton to='/careers' variant="secondary" onClick={() => { this.setState({showSpecificCareer: false, job: null}); this.props.global.setState({ tempJob: null });}} style={{width: "100%"}}>All Careers</LinkButton>
+                        <Button as={Link} to="/" variant="secondary" style={{width: "100%", marginTop: "1.2em"}}>Retake Quiz</Button>
+                        <Button as={Link} to="/my-profile" variant="secondary" style={{width: "100%", marginTop: "1.2em"}}>My Pins</Button>
+                        <Button style={{width: "100%", height: "3.2em", marginTop: "1.2em"}} onClick={() => this.handlePinPressed(job, key) }>{key in pins ? "Unpin Career" : "Pin to Profile"}</Button>
+                    </div>
                 </Col>
-                <Col xs={12} lg={6} style={{marginLeft: "1em"}}>
+                <Col className="v-scroll" xs={12} lg={6} style={{marginLeft: "1em", overflowY: "scroll", maxHeight: "76vh"}}>
                     <h1>{job.title}</h1>
                         <p>{job.bio}</p>
-                        <ul>{job.bullets.map(item => <li>{item}</li>)}</ul>
+                        {job.bullets ? (<ul>{job.bullets.map(item => <li>{item}</li>)}</ul>) : (<></>)}
                     <h3>Responsibilities</h3>
                         <ul>{job.responsibilities.map(item => <li>{item}</li>)}</ul>
                     <h3>Requirements</h3>
@@ -59,7 +87,7 @@ class Careers extends Component {
                     <h4 style={{marginTop: "1.6em"}}>You will enjoy being a {job.title} if you...</h4>
                         <ol>{job.willenjoyif.map(item => <li>{item}</li>)}</ol>
                 </Col>
-                <Col xs={12} lg={3} style={{marginLeft: "3em"}}>
+                <Col className="v-scroll" xs={12} lg={3} style={{marginLeft: "3em", overflowY: "scroll", maxHeight: "76vh"}}>
                     <Image fluid src={job.img} alt={job.title + ' icon'} style={{width: "14em", height: "13.2em", margin: "0 0 0.6em 3.6em"}} />
                     <h4>Tasks</h4>
                         <ul>{job.tasks.map(item => <li>{item}</li>)}</ul>
@@ -91,4 +119,4 @@ class Careers extends Component {
     }
 }
 
-export default Careers;
+export default withRouter(Careers);
