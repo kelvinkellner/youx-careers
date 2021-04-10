@@ -43,7 +43,7 @@ class Careers extends Component {
             let found = false, i=0;
             while(!found && i<kList.length) {
                 if (jobs[kList[i]].title.toLowerCase() === url) {
-                    this.props.global.setState({ tempJob: jobs[kList[i]], tempKey: i });
+                    this.props.global.setState({ tempJob: jobs[kList[i]], tempKey: kList[i] });
                     found = true;
                 } else
                     i++;
