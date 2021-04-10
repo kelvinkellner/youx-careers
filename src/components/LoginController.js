@@ -12,12 +12,11 @@ class LoginController extends Component {
     handleLogoutClick() {
         const user = {
             ...this.props.global.state.user,
-            quizHistory: this.props.global.state.quizHistory,
-            pins: this.props.global.state.pins
+            quizHistory: this.props.global.state.quizHistory
         }
         const userDB = this.props.global.state.userDB;
         userDB[user.email] = user;
-        this.props.global.setState({ isLoggedIn: false, user: null, quizHistory: [], pins: {}, userDB: userDB });
+        this.props.global.setState({ isLoggedIn: false, user: null, quizHistory: [], userDB: userDB });
     }
     render() {
         const isLoggedIn = this.props.global.state.isLoggedIn;

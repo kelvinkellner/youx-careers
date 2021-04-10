@@ -22,13 +22,13 @@ class Careers extends Component {
     }
     handlePinPressed(job, key) {
         if(this.props.global.state.isLoggedIn) {
-            const pins = this.props.global.state.user.pins;
-            if(!(key in pins)) {
-                pins[key] = { title: job.title };
+            const user = this.props.global.state.user;
+            if(!(key in user.pins)) {
+                user.pins[key] = { title: job.title };
             } else {
-                delete pins[key];
+                delete user.pins[key];
             }
-            this.props.global.setState({ pins: pins });
+            this.props.global.setState({ user: user });
         } else {
             alert("Please log in or sign up to save pins!");
         }
