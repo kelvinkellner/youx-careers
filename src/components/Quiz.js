@@ -83,7 +83,7 @@ class Quiz extends Component {
             const q = this.state.questions;
             q[this.state.ids[this.state.now-1]].choice = this.state.choice;
             this.setState({choice: q[this.state.ids[this.state.now]].choice, now: this.state.now+1, questions: q });
-            this.props.global.setState({ tempQuiz: this.state, isQuizActive: true });
+            this.props.global.setState({ tempQuiz: this.state });
         }
         
     }
@@ -141,7 +141,7 @@ class Quiz extends Component {
             results: []
         }
         this.setState(newQuiz);
-        this.props.global.setState({ isQuizActive: false, tempQuiz: newQuiz });
+        this.props.global.setState({ isQuizActive: true, tempQuiz: newQuiz });
     }
     handleCareerClicked(job) {
         this.props.global.setState({ tempJob: job });
