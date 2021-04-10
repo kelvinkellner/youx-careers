@@ -57,11 +57,11 @@ class Login extends Component {
     render() {
         const isLoggedIn = this.props.global.state.isLoggedIn;
         const show = !isLoggedIn ? (
-            <Container id='register' className='main' style={{minHeight: "72.2vh"}}>
+            <Container id='register' className='main'>
                 <Row style={{marginTop: "2em", marginBottom: "1em"}}>
                     <h2>Sign Up</h2>
                 </Row>
-                <Row>
+                <Row style={{minHeight: "400px"}}>
                     <Form>
                         <Form.Group controlId="displayName">
                             <Form.Label>Display Name</Form.Label>

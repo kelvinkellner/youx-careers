@@ -96,7 +96,7 @@ div#header {
 }
 
 .main {
-  min-height: calc(100vh - 11.1em);
+  min-height: calc(100vh - 177px);
   padding: 0;
 }
 
