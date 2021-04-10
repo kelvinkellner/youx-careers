@@ -37,12 +37,9 @@ class Careers extends Component {
         const job = this.props.global.state.tempJob;
         const kList = Object.keys(jobs);
         if(window.location.pathname === '/careers' && job !== null) {
-            console.log("A");
             this.props.global.setState({ tempJob: null, tempKey: null });
         } else if(window.location.pathname !== '/careers' && job === null) {
-            console.log("B");
             const url = window.location.pathname.replace('/careers/', '').replace('+', ' ').replace('-', ' ');
-            console.log("URL:", url);
             let found = false, i=0;
             while(!found && i<kList.length) {
                 if (jobs[kList[i]].title.toLowerCase() === url) {
@@ -51,8 +48,6 @@ class Careers extends Component {
                 } else
                     i++;
             }
-        } else {
-            console.log("NO", window.location.pathname === '/careers', job !== null, window.location.pathname, job);
         }
     }
     componentWillUnmount() {

@@ -83,7 +83,7 @@ class Quiz extends Component {
             const q = this.state.questions;
             q[this.state.ids[this.state.now-1]].choice = this.state.choice;
             this.setState({choice: q[this.state.ids[this.state.now]].choice, now: this.state.now+1, questions: q });
-            this.props.global.setState({ tempQuiz: this.state });
+            this.props.global.setState({ tempQuiz: this.state, isQuizActive: true });
         }
         
     }
@@ -141,7 +141,7 @@ class Quiz extends Component {
             results: []
         }
         this.setState(newQuiz);
-        this.props.global.setState({ isQuizActive: true, tempQuiz: newQuiz });
+        this.props.global.setState({ isQuizActive: false, tempQuiz: newQuiz });
     }
     handleCareerClicked(job) {
         this.props.global.setState({ tempJob: job });
@@ -176,7 +176,7 @@ class Quiz extends Component {
                 <Col style={{padding: "0 2vw 0 16vw"}}>
                     <ul className='quiz-choice' style={{margin: 0, minWidth: "16em", width: "100%"}}>
                         {[...Array(5).keys()].map(x =>
-                            <Row style={{width: "100%"}}>
+                            <Row style={{width: "100%"}} key={'quiz-choice-'+(x+1)}>
                                 <Col style={{padding: 0}}>
                                     <Button className={this.state.choice === (x+1) ? 'btn-primary' : 'btn-secondary'} onClick={()=>this.setState({choice: x+1})} style={{margin: "0.2em", minWidth: "13em", width: "100%"}}>
                                         <Row>
