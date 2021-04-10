@@ -25,7 +25,6 @@ class App extends Component {
       isQuizActive: false,
       tempJob: null, tempKey: null, tempQuiz: null,
       quizHistory: [],
-      pins: {},
       userDB: defaultUsers
     }
   }

@@ -25,7 +25,7 @@ class Login extends Component {
             if(this.props.global.state.userDB[email].password === password) {
                 const user = this.props.global.state.userDB[email];
                 const history = this.props.global.state.quizHistory.concat(user.quizHistory);
-                this.props.global.setState({ isLoggedIn: true, user: user, pins: user.pins, quizHistory: history });
+                this.props.global.setState({ isLoggedIn: true, user: user, quizHistory: history });
             } else {
                 alert("Incorrect password.");
             }

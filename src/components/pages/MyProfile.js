@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link, Redirect, withRouter } from 'react-router-dom';
+import { Redirect, withRouter } from 'react-router-dom';
 import { Pencil } from 'react-bootstrap-icons';
 
 import Button from 'react-bootstrap/Button';
@@ -16,10 +16,10 @@ class MyProfile extends Component {
         this.handleUnpin = this.handleUnpin.bind(this);
     }
     handleUnpin(key) {
-        const pins = this.props.global.state.pins;
-        if(key in pins) {
-            delete pins[key];
-            this.props.global.setState({ pins: pins });
+        const user = this.props.global.state.user;
+        if(key in user.pins) {
+            delete user.pins[key];
+            this.props.global.setState({ user: user });
         }
     }
     handleViewResults(quiz) {
@@ -36,15 +36,8 @@ class MyProfile extends Component {
             this.props.global.setState({ quizHistory: quizHistory });
         }
     }
-    refreshCareerSelected() {
-        this.props.global.setState({ tempJob: null });
-    }
     render() {
-        if(window.location.pathname === '/careers') {
-            this.props.global.setState({ tempJob: null });
-            this.setState()
-        }
-        const pins = this.props.global.state.pins;
+        const pins = this.props.global.state.isLoggedIn ? this.props.global.state.user.pins : {};
         const quizHistory = this.props.global.state.quizHistory;
         const show = this.props.global.state.isLoggedIn ? (
             <Container id='my-profile' className='main' style={{paddingLeft: "2em", paddingTop: "2em"}}>
@@ -55,8 +48,8 @@ class MyProfile extends Component {
                     <Col style={{padding: 0}}>
                         <h4>Pinned Careers</h4>
                         {Object.keys(pins).length > 0 ? (
-                            Object.keys(pins).map(key => 
-                                <Row className='pinned-section' style={{marginBottom: "0.2em"}}>
+                            Object.keys(pins).map((key, i) => 
+                                <Row className='pinned-section' style={{marginBottom: "0.2em"}} key={"pinned-career-"+(i+1)}>
                                     <Col xs={2}>
                                         <p>{pins[key].title}</p>
                                     </Col>
@@ -65,7 +58,7 @@ class MyProfile extends Component {
                                         <Button variant="link" onClick={() => this.handleUnpin(key)}>Unpin</Button>
                                     </Col>
                                     <Col xs={2} style={{padding: 0, margin: "0 0.4em"}}>
-                                        <LinkButton onClick={() => this.handleCareerClicked(jobs[key])} to={'/careers/' + pins[key].title.toLowerCase().replace(' ', '-')}>View Career</LinkButton>
+                                        <LinkButton to={'/careers/' + pins[key].title.toLowerCase().replace(' ', '-')} onClick={() => this.handleCareerClicked(jobs[key])}>View Career</LinkButton>
                                     </Col>
                                 </Row>
                                 )
@@ -83,15 +76,15 @@ class MyProfile extends Component {
                         <h4>Past Quiz Results</h4>
                             { quizHistory.length > 0 ? (
                                 quizHistory.map((quiz, i) => (
-                                    <Row className='pinned-section' style={{marginBottom: "0.2em"}}>
+                                    <Row className='pinned-section' style={{marginBottom: "0.2em"}} key={"past-quiz-"+(i+1)}>
                                         <Col xs={2}>
                                             <p>{quiz.date}</p>
                                         </Col>
                                         <Col xs={3}>
-                                            <LinkButton as={Link} onClick={() => this.handleEditName(i)} className='edit-text'>
+                                            <Button onClick={() => this.handleEditName(i)} className='edit-text'>
                                                 <p>{quiz.title}</p>
                                                 <Pencil className='icon' size={12}/>
-                                            </LinkButton>
+                                            </Button>
                                         </Col>
                                         <Col fluid />
                                         <Col xs={2} style={{padding: 0, margin: "0 0.4em"}}>

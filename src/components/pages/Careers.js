@@ -22,7 +22,7 @@ class Careers extends Component {
     }
     handlePinPressed(job, key) {
         if(this.props.global.state.isLoggedIn) {
-            const pins = this.props.global.state.pins;
+            const pins = this.props.global.state.user.pins;
             if(!(key in pins)) {
                 pins[key] = { title: job.title };
             } else {
@@ -59,7 +59,7 @@ class Careers extends Component {
         this.refreshCareerSelected(kList, job);
         const showSpecificCareer = this.props.global.state.tempJob === null ? false : true;
         const key = this.props.global.state.tempKey;
-        const pins = this.props.global.state.pins;
+        const pins = this.props.global.state.isLoggedIn ? this.props.global.state.user.pins : {};
         const show = showSpecificCareer ? (
         <Container id='specific-career' className='main' style={{marginBottom: 0}}>
             <Row>
@@ -74,20 +74,20 @@ class Careers extends Component {
                 <Col className="v-scroll" xs={12} lg={6} style={{marginLeft: "1em", overflowY: "scroll", maxHeight: "76vh"}}>
                     <h1>{job.title}</h1>
                         <p>{job.bio}</p>
-                        {job.bullets ? (<ul>{job.bullets.map(item => <li>{item}</li>)}</ul>) : (<></>)}
+                        {job.bullets ? (<ul>{job.bullets.map((item,i) => <li key={"job-"+(i+1)+"-bullets"}>{item}</li>)}</ul>) : (<></>)}
                     <h3>Responsibilities</h3>
-                        <ul>{job.responsibilities.map(item => <li>{item}</li>)}</ul>
+                        <ul>{job.responsibilities.map((item,i) => <li key={"job-"+(i+1)+"-responsibilites"}>{item}</li>)}</ul>
                     <h3>Requirements</h3>
-                        <ul>{job.requirements.map(item => <li>{item}</li>)}</ul>
+                        <ul>{job.requirements.map((item,i) => <li key={"job-"+(i+1)+"-requirements"}>{item}</li>)}</ul>
                     <h4 style={{marginTop: "1.6em"}}>You will enjoy being a {job.title} if you...</h4>
-                        <ol>{job.willenjoyif.map(item => <li>{item}</li>)}</ol>
+                        <ol>{job.willenjoyif.map((item,i) => <li key={"job-"+(i+1)+"-will-enjoy-if"}>{item}</li>)}</ol>
                 </Col>
                 <Col className="v-scroll" xs={12} lg={3} style={{marginLeft: "3em", overflowY: "scroll", maxHeight: "76vh"}}>
                     <Image fluid src={job.img} alt={job.title + ' icon'} style={{width: "14em", height: "13.2em", margin: "0 0 0.6em 3.6em"}} />
                     <h4>Tasks</h4>
-                        <ul>{job.tasks.map(item => <li>{item}</li>)}</ul>
+                        <ul>{job.tasks.map((item,i) => <li key={"job-"+(i+1)+"-tasks"}>{item}</li>)}</ul>
                     <h4>Skills Needed</h4>
-                        <ul>{job.skills.map(item => <li>{item}</li>)}</ul>
+                        <ul>{job.skills.map((item,i) => <li key={"job-"+(i+1)+"-skills"}>{item}</li>)}</ul>
                     <h4>Average Salary</h4>
                         <p style={{fontSize: "1.1rem", marginBottom: "-0.2em"}}>${job.salary} / year (median)</p>
                         <p className="hint"><a href="https://www.payscale.com/" target="_blank" rel="noreferrer">2021 in Canada, via PayScale.</a></p>
@@ -99,7 +99,7 @@ class Careers extends Component {
             <Row>
                 <CardDeck style={{padding: "0 8em"}}>
                     {kList.map((key) => (
-                        <Card className="career-page-card" style={{minWidth: "20%", marginBottom: "2em", alignItems: "center"}}>
+                        <Card className="career-page-card" style={{minWidth: "20%", marginBottom: "2em", alignItems: "center"}} key={'career-select-'+jobs[key].title.toLowerCase().replace(' ', '-')}>
                             <Card.Img variant="top" src={jobs[key].img} style={{width: "12em", height: "11em", margin: "1.6em 0"}} />
                             <LinkButton to={'/careers/' + jobs[key].title.toLowerCase().replace(' ', '-')} style={{borderRadius: "0 0 3px 3px", width: "100%"}} onClick={() => this.handleJobClick(jobs[key], key)}>{jobs[key].title}</LinkButton>
                         </Card>

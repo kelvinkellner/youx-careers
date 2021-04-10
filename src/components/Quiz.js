@@ -148,13 +148,13 @@ class Quiz extends Component {
     }
     handlePinPressed(job, key) {
         if(this.props.global.state.isLoggedIn) {
-            const pins = this.props.global.state.pins;
-            if(!(key in pins)) {
-                pins[key] = { title: job.title };
+            const user = this.props.global.state.user;
+            if(!(key in user.pins)) {
+                user.pins[key] = { title: jobs[key] };
             } else {
-                delete pins[key];
+                delete user.pins[key];
             }
-            this.props.global.setState({ pins: pins });
+            this.props.global.setState({ user: user });
         } else {
             alert("Please log in or sign up to save pins!");
         }
@@ -228,7 +228,7 @@ class Quiz extends Component {
             <Row style={{width: "90%"}}>
                 <CardDeck style={{width: "100%"}}>
                     {results.map((job, i) => (
-                        <Card>
+                        <Card key={"match-"+(i+1)}>
                             <Card.Header style={{fontWeight: "bold"}}>Match #{i+1}</Card.Header>
                             <Image fluid src={job.img} alt={job.title + ' icon'} style={{width: "14em", height: "13em", margin: "0.75em 0 0 5.25em"}} />
                             <Card.Body>
